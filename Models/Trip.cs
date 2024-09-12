@@ -68,7 +68,7 @@ public class Trip
     }
 
     // Kommer ambulanceId og taskId fra selected items i kollektionerne i UI eller noget filter eller søgning?
-    public void AssignTasksToAmbulances(Task taskId, Ambulance ambulanceId)
+    public void AssignTaskToAmbulance(Task taskId, Ambulance ambulanceId)
     {
         // lav et tjek om ambulancen kan tage opgaven før der kan tildeles? Evt. ud fra ders andre opgaver?
         ambulanceId.AssignedTasks.Add(taskId);
