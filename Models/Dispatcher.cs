@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace RegionSyd.Models
 {
-    internal class Dispatcher
+    public class Dispatcher
     {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
     }
 }
