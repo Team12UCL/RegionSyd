@@ -12,14 +12,14 @@ namespace RegionSyd.Models
         public int AmbulanceId { get; set; }
         public bool ActiveTrip { get; set; }
         public string Status {  get; set; }
-        public ObservableCollection<Task> AssignedTasks { get; set; }
+        public List<Task> AssignedTasks { get; set; }
 
 
         public Ambulance(int ambulanceId, string status) 
         {
             AmbulanceId = ambulanceId;
             Status = status;
-            AssignedTasks = new ObservableCollection<Task>();
+            AssignedTasks = new List<Task>();
         }
     }
 }
