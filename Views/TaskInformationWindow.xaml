@@ -1,0 +1,79 @@
+﻿<Window x:Class="RegionSyd.Views.TaskInformationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Opgave Information" Height="450" Width="450" 
+        Background="#f9f9f9" WindowStartupLocation="CenterScreen"
+        FontFamily="Segoe UI" FontSize="14">
+    <Grid Margin="20">
+        <!-- Defining rows and columns for better layout -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Header Section -->
+        <TextBlock Text="Opgave Information" 
+                   FontSize="18" FontWeight="Bold" 
+                   Foreground="#333" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,10,0,20" />
+
+        <!-- Information Content Section -->
+        <StackPanel Grid.Row="1" VerticalAlignment="Center">
+
+            <!-- Opgave ID -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Opgave ID:" FontWeight="Bold" Width="150" Foreground="#555"/>
+                <TextBlock Text="{Binding TaskId}" Foreground="#333"/>
+            </StackPanel>
+
+            <!-- Til Lokation -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Til Lokation:" FontWeight="Bold" Width="150" Foreground="#555"/>
+                <TextBlock Text="{Binding DestinationLocation}" Foreground="#333"/>
+            </StackPanel>
+
+            <!-- Fra Lokation -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Fra Lokation:" FontWeight="Bold" Width="150" Foreground="#555"/>
+                <TextBlock Text="{Binding OriginLocation}" Foreground="#333"/>
+            </StackPanel>
+
+            <!-- Status -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Status:" FontWeight="Bold" Width="150" Foreground="#555"/>
+                <TextBlock Text="{Binding Status}" Foreground="#333"/>
+            </StackPanel>
+
+            <!-- Afhentnings Tidspunkt -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Afhentnings Tidspunkt:" FontWeight="Bold" Width="150" Foreground="#555"/>
+                <TextBlock Text="{Binding PickupTime}" Foreground="#333"/>
+            </StackPanel>
+
+            <!-- Estimeret Køretid -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Estimeret Køretid:" FontWeight="Bold" Width="150" Foreground="#555"/>
+                <TextBlock Text="{Binding EstimatedDriveTime}" Foreground="#333"/>
+            </StackPanel>
+
+            <!-- Afstand -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Afstand:" FontWeight="Bold" Width="150" Foreground="#555"/>
+                <TextBlock Text="{Binding Distance}" Foreground="#333"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Footer Section -->
+        <Button Grid.Row="2" Content="Luk" Width="100" Height="30" 
+                HorizontalAlignment="Center" 
+                Background="#0078D7" Foreground="White" 
+                Margin="0,20,0,0" 
+                Click="CloseWindow_Click"/>
+    </Grid>
+</Window>
