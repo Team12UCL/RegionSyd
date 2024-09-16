@@ -28,10 +28,6 @@
             <!-- Middle-left zone -->
             <StackPanel Grid.Row="1" >
                 <DataGrid Margin="10" Height="200" x:Name="DataDisplay" />
-                <StackPanel Orientation="Horizontal" Margin="10,0,0,0" >
-                    <Button Content="Match Opgaver" Margin="0,0,5,0"/>
-                    <Button Content="Fjern Opgave" />
-                </StackPanel>
             </StackPanel>
 
             <!-- Bottom-left zone -->
