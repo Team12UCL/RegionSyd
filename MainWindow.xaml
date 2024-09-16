@@ -25,7 +25,66 @@
             <ComboBox Grid.Row="0" Margin="10" x:Name="RegionSelector" />
 
             <!-- Middle-left zone -->
-            <DataGrid Grid.Row="1" Margin="10" x:Name="DataDisplay" />
+            <Grid Grid.Row="1" Margin="10" x:Name="DataDisplay">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Id" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Til" FontWeight="Bold" HorizontalAlignment="Center" />
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="Fra" FontWeight="Bold" HorizontalAlignment="Center" />
+                <TextBlock Grid.Row="0" Grid.Column="3" Text="Tid" FontWeight="Bold" HorizontalAlignment="Center"/>
+
+                <TextBlock x:Name="OpgaveId1" Grid.Row="1" Grid.Column="0" Text="Q89GY2" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveTil1" Grid.Row="1" Grid.Column="1" Text="Riget" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveFra1" Grid.Row="1" Grid.Column="2" Text="Aarhus" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveTid1" Grid.Row="1" Grid.Column="3" Text="14:30" HorizontalAlignment="Center"/>
+
+                <TextBlock x:Name="OpgaveId2" Grid.Row="2" Grid.Column="0" Text="Q89GY2" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveTil2" Grid.Row="2" Grid.Column="1" Text="Riget" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveFra2" Grid.Row="2" Grid.Column="2" Text="Aarhus" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveTid2" Grid.Row="2" Grid.Column="3" Text="14:30" HorizontalAlignment="Center"/>
+
+                <TextBlock x:Name="OpgaveId3" Grid.Row="3" Grid.Column="0" Text="Q89GY2" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveTil3" Grid.Row="3" Grid.Column="1" Text="Riget" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveFra3" Grid.Row="3" Grid.Column="2" Text="Aarhus" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveTid3" Grid.Row="3" Grid.Column="3" Text="14:30" HorizontalAlignment="Center"/>
+
+                <TextBlock x:Name="OpgaveId4" Grid.Row="4" Grid.Column="0" Text="Q89GY2" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveTil4" Grid.Row="4" Grid.Column="1" Text="Riget" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveFra4" Grid.Row="4" Grid.Column="2" Text="Aarhus" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveTid4" Grid.Row="4" Grid.Column="3" Text="14:30" HorizontalAlignment="Center"/>
+
+                <TextBlock x:Name="OpgaveId5" Grid.Row="5" Grid.Column="0" Text="Q89GY2" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveTil5" Grid.Row="5" Grid.Column="1" Text="Riget" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveFra5" Grid.Row="5" Grid.Column="2" Text="Aarhus" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveTid5" Grid.Row="5" Grid.Column="3" Text="14:30" HorizontalAlignment="Center"/>
+
+                <TextBlock x:Name="OpgaveId6" Grid.Row="6" Grid.Column="0" Text="Q89GY2" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveTil6" Grid.Row="6" Grid.Column="1" Text="Riget" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveFra6" Grid.Row="6" Grid.Column="2" Text="Aarhus" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveTid6" Grid.Row="6" Grid.Column="3" Text="14:30" HorizontalAlignment="Center"/>
+
+                <TextBlock x:Name="OpgaveId7" Grid.Row="7" Grid.Column="0" Text="Q89GY2" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveTil7" Grid.Row="7" Grid.Column="1" Text="Riget" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveFra7" Grid.Row="7" Grid.Column="2" Text="Aarhus" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="OpgaveTid7" Grid.Row="7" Grid.Column="3" Text="14:30" HorizontalAlignment="Center"/>
+
+            </Grid>
 
             <!-- Bottom-left zone -->
             <StackPanel Grid.Row="2" Margin="10">
