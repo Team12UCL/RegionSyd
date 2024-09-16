@@ -16,9 +16,9 @@ namespace RegionSyd.Models
         {
             return $"Region Name: {Name}";
         }
-        public string GetTasks()
-        {
-            return List<Task>;
-        }
+        //public string GetTasks()
+        //{
+        //    return List<Task>;
+        //}
     }
 }

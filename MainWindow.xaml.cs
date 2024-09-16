@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -29,8 +30,10 @@ namespace RegionSyd
         // Method to load data from the CSV file
         private void LoadDataFromFile(string filePath)
         {
+            
             try
             {
+                StreamReader sr = new StreamReader(filePath);
                 // Read all lines from the CSV file
                 var lines = File.ReadAllLines(filePath);
 
