@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -8,6 +9,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using RegionSyd.Views;
+
 
 namespace RegionSyd
 {
@@ -20,6 +23,9 @@ namespace RegionSyd
         {
             InitializeComponent();
             LoadDataFromFile(@"C:\Users\ivark\source\repos\Team12UCL\RegionSyd\opgaver.csv");
+
+            // Sætter indholdet (pagen AutomaticMatchesPage) for de automatiske foreslag (Grid Row 3)
+            AutomaticSuggestions.NavigationService.Navigate(new AutomaticMatchesPage());
         }
 
         private void DataDisplay_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -31,6 +37,8 @@ namespace RegionSyd
         {
             try
             {
+                StreamReader sr = new StreamReader(filePath);
+
                 // Read all lines from the CSV file
                 var lines = File.ReadAllLines(filePath);
 
