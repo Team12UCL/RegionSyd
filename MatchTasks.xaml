@@ -1,0 +1,52 @@
+﻿<Page x:Class="RegionSyd.MatchTasks"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RegionSyd"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MatchTasks">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Selected Task Information -->
+        <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="1" Margin="0,0,0,10" Background="LightGray">
+            <StackPanel Orientation="Vertical">
+                <TextBlock FontWeight="Bold" FontSize="14" Text="Valgt Opgave:" Margin="0,0,0,5"/>
+                <TextBlock Text="{Binding SelectedTask.Id, StringFormat='Opgave Id: {0}'}" FontSize="12" Margin="0,2"/>
+                <TextBlock Text="{Binding SelectedTask.From, StringFormat='Fra: {0}'}" FontSize="12" Margin="0,2"/>
+                <TextBlock Text="{Binding SelectedTask.To, StringFormat='Til: {0}'}" FontSize="12" Margin="0,2"/>
+                <TextBlock Text="{Binding SelectedTask.Status, StringFormat='Status: {0}'}" FontSize="12" Margin="0,2"/>
+                <TextBlock Text="{Binding SelectedTask.PickupTime, StringFormat='Afhentning: {0}'}" FontSize="12" Margin="0,2"/>
+                <TextBlock Text="{Binding SelectedTask.Region, StringFormat='Region: {0}'}" FontSize="12" Margin="0,2"/>
+            </StackPanel>
+        </Border>
+
+        <!-- List of Potential Matches -->
+        <DataGrid x:Name="MatchesDataGrid" Grid.Row="1" AutoGenerateColumns="False" 
+                  ItemsSource="{Binding PotentialMatches}" 
+                  SelectedItem="{Binding SelectedMatch}" SelectionMode="Single" 
+                  Margin="0,10,0,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="Fra" Binding="{Binding From}" Width="100"/>
+                <DataGridTextColumn Header="Til" Binding="{Binding To}" Width="100"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100"/>
+                <DataGridTextColumn Header="Afhentning" Binding="{Binding PickupTime}" Width="120"/>
+                <DataGridTextColumn Header="Region" Binding="{Binding Region}" Width="100"/>
+                <DataGridTextColumn Header="Besparelse" Binding="{Binding Savings}" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Button for Matching Task -->
+        <Button Content="Vælg" Grid.Row="2" Margin="0,10,0,0" 
+                HorizontalAlignment="Right" Width="100" 
+                Command="{Binding }" />
+    </Grid>
+</Page>
