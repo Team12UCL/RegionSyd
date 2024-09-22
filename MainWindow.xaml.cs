@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using RegionSyd.Views;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,7 +21,21 @@ namespace RegionSyd
         public MainWindow()
         {
             InitializeComponent();
-            LoadDataFromFile(@"C:\Users\ivark\source\repos\Team12UCL\RegionSyd\opgaver.csv");
+            LoadDataFromFile(@"C:\Users\peter\source\repos\Team12UCL\RegionSyd\opgaver.csv");
+        }
+        private void OpenTaskInformationWindow_Click(object sender, RoutedEventArgs e)
+        {
+            var taskInformationWindow = new TaskInformationWindow(
+                taskId: "123",
+                destinationLocation: "Hospital X",
+                originLocation: "Location Y",
+                status: "Pending",
+                pickupTime: DateTime.Now,
+                estimatedDriveTime: TimeSpan.FromMinutes(30),
+                distance: 15.0);
+
+            taskInformationWindow.Show(); 
+           
         }
 
         private void DataDisplay_SelectionChanged(object sender, SelectionChangedEventArgs e)

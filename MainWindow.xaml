@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" >
     <!--OBS: Width and height not set-->
+    
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>
@@ -90,6 +92,9 @@
             <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10,0,0,0" >
                 <Button Content="Match Opgaver" Margin="0,0,5,0"/>
                 <Button Content="Fjern Opgave" />
+                <Button Grid.Row="4" Content="Åbn Task Information" 
+        
+        Click="OpenTaskInformationWindow_Click"/>
             </StackPanel>
 
             <!-- Bottom-left zone -->
@@ -131,9 +136,13 @@
             </Grid.RowDefinitions>
 
             <!-- Top-right zone -->
-            <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="1" Margin="10">
-                <TextBlock Text="OPGAVE INFORMATION" Padding="5"/>
-            </Border>
+            <TabControl Grid.Column="1">
+                <!-- Tab for Match Opgaver -->
+                <TabItem Header="Match Opgaver">
+                    <!-- Frame to display the MatchTasks page -->
+                    <Frame Source="MatchTasks.xaml" />
+                </TabItem>
+            </TabControl>
 
             <!-- Center-right zone (Map) -->
             <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="1" Margin="10">
