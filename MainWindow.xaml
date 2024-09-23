@@ -86,7 +86,6 @@
                 <TextBlock x:Name="OpgaveFra7" Grid.Row="7" Grid.Column="2" Text="Aarhus" HorizontalAlignment="Center"/>
                 <TextBlock x:Name="OpgaveTid7" Grid.Row="7" Grid.Column="3" Text="14:30" HorizontalAlignment="Center"/>            
             </Grid>
-
             <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10,0,0,0" >
                 <Button Content="Match Opgaver" Margin="0,0,5,0"/>
                 <Button Content="Fjern Opgave" />

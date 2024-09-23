@@ -8,12 +8,12 @@ namespace RegionSyd.ViewModels
 {
     public class MatchTasksViewModel : INotifyPropertyChanged
     {
-        private Task _selectedTask;
-        private Task _selectedMatch;
-        private ObservableCollection<Task> _potentialMatches;
+        private Models.Task _selectedTask;
+        private Models.Task _selectedMatch;
+        private ObservableCollection<Models.Task> _potentialMatches;
 
         // Property for the selected task, with change notification
-        public Task SelectedTask
+        public Models.Task SelectedTask
         {
             get => _selectedTask;
             set
@@ -27,7 +27,7 @@ namespace RegionSyd.ViewModels
         }
 
         // Collection of potential matches
-        public ObservableCollection<Task> PotentialMatches
+        public ObservableCollection<Models.Task> PotentialMatches
         {
             get => _potentialMatches;
             set
@@ -38,6 +38,12 @@ namespace RegionSyd.ViewModels
                     OnPropertyChanged(nameof(PotentialMatches));
                 }
             }
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+        public void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

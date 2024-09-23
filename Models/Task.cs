@@ -8,12 +8,12 @@ namespace RegionSyd.Models
 {
     public class Task
     {
-        public Guid TaskId { get; private set; }
+        public int TaskId { get; set; }
         public string Description { get; set; }
         public DateTime CreatedTime { get; private set; }
         public DateTime? CompletedTime { get; private set; }
         public TaskStatus Status { get; private set; }
-        public Priority Priority { get; set; }
+        //public Priority Priority { get; set; }
         public Guid? AssignedAmbulanceId { get; private set; }
         public Guid? AssignedRegionId { get; private set; }
     }

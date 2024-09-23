@@ -35,6 +35,7 @@ namespace RegionSyd
         // Method to load data from the CSV file
         private void LoadDataFromFile(string filePath)
         {
+            
             try
             {
                 StreamReader sr = new StreamReader(filePath);
