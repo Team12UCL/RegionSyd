@@ -1,0 +1,40 @@
+﻿<Page x:Class="RegionSyd.Views.AutomaticMatchesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RegionSyd.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AutomaticMatchesPage">
+
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="Automatiske Forslag:" FontWeight="Bold" Margin="0,0,0,10"/>
+            <ListBox ItemsSource="{Binding Suggestions}" SelectedItem="{Binding SelectedSuggestion, Mode=TwoWay}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5" Margin="0,0,0,10" Padding="5">
+                            <StackPanel>
+                                <TextBlock Text="{Binding suggestionSummary}" FontWeight="SemiBold"/>
+                                <TextBlock Text="{Binding savingsSummary}" Margin="0,5,0,5"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Acceptér" 
+                                Margin="0,0,10,0" 
+                                Padding="5,2"
+                                Command="{Binding DataContext.AcceptCommand, RelativeSource={RelativeSource AncestorType=ListBox}}"
+                                CommandParameter="{Binding}"/>
+                                    <Button Content="Afvis" 
+                                Padding="5,2"
+                                Command="{Binding DataContext.RejectCommand, RelativeSource={RelativeSource AncestorType=ListBox}}"
+                                CommandParameter="{Binding}"/>
+                                    <!-- Optional: Lav en "Mere info"-knap i stedet for Afvis? -->
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</Page>
