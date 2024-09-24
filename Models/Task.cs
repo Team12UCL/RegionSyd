@@ -8,6 +8,11 @@ namespace RegionSyd.Models
 {
     public class Task
     {
+        public string Id { get; set; }
+        public string Til { get; set; }
+        public string Fra { get; set; }
+        public string Tid { get; set; }
+
         public int TaskId { get; set; }
         public string Description { get; set; }
         public DateTime CreatedTime { get; private set; }
