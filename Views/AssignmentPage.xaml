@@ -1,0 +1,21 @@
+﻿<Page x:Class="RegionSyd.AssignmentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RegionSyd"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AssignmentPage">
+
+    <Grid>
+        <DataGrid ItemsSource="{Binding Tasks}"  HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="400" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Til" Binding="{Binding Til}" />
+                <DataGridTextColumn Header="Fra" Binding="{Binding Fra}" />
+                <DataGridTextColumn Header="Tid" Binding="{Binding Tid}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
