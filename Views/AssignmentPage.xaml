@@ -9,7 +9,7 @@
       Title="AssignmentPage">
 
     <Grid>
-        <DataGrid ItemsSource="{Binding Tasks}"  HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="400" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid ItemsSource="{Binding Tasks}" SelectedItem="{Binding SelectedTask}" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="400" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding TaskId}" />
                 <DataGridTextColumn Header="Til" Binding="{Binding Destination}" />
