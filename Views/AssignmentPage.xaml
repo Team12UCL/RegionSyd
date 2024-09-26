@@ -14,7 +14,7 @@
                 <DataGridTextColumn Header="Id" Binding="{Binding TaskId}" />
                 <DataGridTextColumn Header="Til" Binding="{Binding Destination}" />
                 <DataGridTextColumn Header="Fra" Binding="{Binding Origin}" />
-                <DataGridTextColumn Header="Tid" Binding="{Binding Time}" />
+                <DataGridTextColumn Header="Tid" Binding="{Binding PickupTime}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

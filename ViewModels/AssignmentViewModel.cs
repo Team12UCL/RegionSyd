@@ -33,7 +33,7 @@ namespace RegionSyd.ViewModels
                             TaskId = int.Parse(fields[0]),
                             Origin = fields[1],
                             Destination = fields[2],
-                            Time = fields[3]
+                            PickupTime = DateTime.Parse(fields[3])
                         });
                     }
                 }
