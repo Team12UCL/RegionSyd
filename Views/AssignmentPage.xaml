@@ -11,10 +11,10 @@
     <Grid>
         <DataGrid ItemsSource="{Binding Tasks}"  HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="400" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Til" Binding="{Binding Til}" />
-                <DataGridTextColumn Header="Fra" Binding="{Binding Fra}" />
-                <DataGridTextColumn Header="Tid" Binding="{Binding Tid}" />
+                <DataGridTextColumn Header="Id" Binding="{Binding TaskId}" />
+                <DataGridTextColumn Header="Til" Binding="{Binding Destination}" />
+                <DataGridTextColumn Header="Fra" Binding="{Binding Origin}" />
+                <DataGridTextColumn Header="Tid" Binding="{Binding Time}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

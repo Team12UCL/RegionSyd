@@ -21,7 +21,7 @@ namespace RegionSyd.ViewModels
                 var lines = File.ReadAllLines(filePath);
 
                 // Ensure the CSV has at least one row of data
-                for (int i = 0; i < lines.Length; i++)
+                for (int i = 1; i < lines.Length; i++)
                 {
                     var fields = lines[i].Split(',');
 
@@ -30,10 +30,10 @@ namespace RegionSyd.ViewModels
                     {
                         Tasks.Add(new Models.Task
                         {
-                            Id = fields[0],
-                            Til = fields[1],
-                            Fra = fields[2],
-                            Tid = fields[3]
+                            TaskId = int.Parse(fields[0]),
+                            Origin = fields[1],
+                            Destination = fields[2],
+                            Time = fields[3]
                         });
                     }
                 }
