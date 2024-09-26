@@ -61,7 +61,7 @@
                     </TabItem>
                     <!-- Tab 2 -->
                     <TabItem Header="Opgave Information">
-                        <Frame x:Name="seOpgaveInformation" />
+                        <Frame x:Name="TaskInformationTab" />
                     </TabItem>
                     <!-- Tab 3 -->
                     <TabItem Header="Opret Kørsel">
