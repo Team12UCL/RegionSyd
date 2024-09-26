@@ -54,7 +54,7 @@
             <!-- Center-right zone (Map) -->
             <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="1" Margin="10">
                 <!-- Replace with actual map control -->
-                <TextBlock Text="Map Area" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Image Source="Images/Danmarkskort.png" Width="900"/>
             </Border>
         </Grid>
     </Grid>
