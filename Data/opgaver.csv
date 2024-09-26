@@ -1,11 +1,11 @@
 ID,Fra,Til,Tid
-QW1234,Aarhus Universitetshospital,Rigshospitalet,13:45
-ER5678,Odense Universitetshospital,Sygehus Sønderjylland,09:30
-TY7890,Herlev Hospital,Nordsjællands Hospital,11:15
-UI3456,Hvidovre Hospital,Randers Sygehus,14:50
-OP0987,Bispebjerg Hospital,Kolding Sygehus,12:25
-LK5432,Vejle Sygehus,Horsens Sygehus,10:10
-MN2345,Næstved Sygehus,Hillerød Sygehus,08:50
-JK9876,Aalborg Universitetshospital,Slagelse Sygehus,16:05
-YT6789,Holbæk Sygehus,Esbjerg Sygehus,07:20
-HG3451,Frederikshavn Sygehus,Roskilde Sygehus,15:30
+QW1234,Aarhus,Riget,13:45
+ER5678,Odense,Soenderjylland,09:30
+TY7890,Herlev,Nordsjaelland,11:15
+UI3456,Hvidovre,Randers,14:50
+OP0987,Bispebjerg,Kolding,12:25
+LK5432,Vejle,Horsens,10:10
+MN2345,Naestved,Hilleroed,08:50
+JK9876,Aalborg,Slagelse,16:05
+YT6789,Holbaek,Esbjerg,07:20
+HG3451,Frederikshavn,Roskilde,15:30
