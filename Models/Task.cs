@@ -12,9 +12,10 @@ namespace RegionSyd.Models
         public string Destination { get; set; }
         public string Origin { get; set; }
         public DateTime PickupTime { get; set; }
+        public DateTime DropOffTime { get; set; }
+        public int Distance { get; set; }
 
-       
-        
+
         public string Description { get; set; }
         public int PickUpRegionId { get; set; }
         public int DropOffRegionId { get; set; }

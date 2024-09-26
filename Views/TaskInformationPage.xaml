@@ -33,43 +33,49 @@
             <!-- Opgave ID -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <TextBlock Text="Opgave ID:" FontWeight="Bold" Width="150" Foreground="#555"/>
-                <TextBlock Text="{Binding TaskId}" Foreground="#333"/>
+                <TextBlock Text="{Binding SelectedTask.TaskId}" Foreground="#333"/>
             </StackPanel>
 
             <!-- Til Lokation -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <TextBlock Text="Til Lokation:" FontWeight="Bold" Width="150" Foreground="#555"/>
-                <TextBlock Text="{Binding DestinationLocation}" Foreground="#333"/>
+                <TextBlock Text="{Binding SelectedTask.Destination}" Foreground="#333"/>
             </StackPanel>
 
             <!-- Fra Lokation -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <TextBlock Text="Fra Lokation:" FontWeight="Bold" Width="150" Foreground="#555"/>
-                <TextBlock Text="{Binding OriginLocation}" Foreground="#333"/>
+                <TextBlock Text="{Binding SelectedTask.Origin}" Foreground="#333"/>
             </StackPanel>
 
             <!-- Status -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <TextBlock Text="Status:" FontWeight="Bold" Width="150" Foreground="#555"/>
-                <TextBlock Text="{Binding Status}" Foreground="#333"/>
+                <TextBlock Text="{Binding SelectedTask.Status}" Foreground="#333"/>
             </StackPanel>
 
             <!-- Afhentnings Tidspunkt -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <TextBlock Text="Afhentnings Tidspunkt:" FontWeight="Bold" Width="150" Foreground="#555"/>
-                <TextBlock Text="{Binding PickupTime}" Foreground="#333"/>
+                <TextBlock Text="{Binding SelectedTask.PickupTime}" Foreground="#333"/>
+            </StackPanel>
+
+            <!-- Afsaetnins Tidspunkt -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Afhentnings Tidspunkt:" FontWeight="Bold" Width="150" Foreground="#555"/>
+                <TextBlock Text="{Binding SelectedTask.DropOffTime}" Foreground="#333"/>
             </StackPanel>
 
             <!-- Estimeret Køretid -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <TextBlock Text="Estimeret Køretid:" FontWeight="Bold" Width="150" Foreground="#555"/>
-                <TextBlock Text="{Binding EstimatedDriveTime}" Foreground="#333"/>
+                <TextBlock Text="{Binding SelectedTask.EstimatedDriveTime}" Foreground="#333"/>
             </StackPanel>
 
             <!-- Afstand -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <TextBlock Text="Afstand:" FontWeight="Bold" Width="150" Foreground="#555"/>
-                <TextBlock Text="{Binding Distance}" Foreground="#333"/>
+                <TextBlock Text="{Binding SelectedTask.Distance}" Foreground="#333"/>
             </StackPanel>
         </StackPanel>
 

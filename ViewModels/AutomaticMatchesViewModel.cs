@@ -55,13 +55,13 @@ namespace RegionSyd.ViewModels
         public AutomaticMatchesViewModel()
         {
             // DummyData: tre ambulancer
-            var ambulance1 = new Ambulance(11, "Available");
+            var ambulance1 = new Ambulance(1,11, "Available");
             var task1 = new Models.Task { TaskId = 021 };
 
-            var ambulance2 = new Ambulance(32, "Available");
+            var ambulance2 = new Ambulance(2,32, "Available");
             var task2 = new Models.Task { TaskId = 53 };
 
-            var ambulance3 = new Ambulance(27, "Available");
+            var ambulance3 = new Ambulance(3,27, "Available");
             var task3 = new Models.Task { TaskId = 14 };
 
             Suggestions = new ObservableCollection<AutomaticMatchesViewModel>(
