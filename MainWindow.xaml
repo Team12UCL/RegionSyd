@@ -29,11 +29,7 @@
             <!-- Middle-left zone -->
             <Grid Grid.Row="1" Margin="10" x:Name="DataDisplay">
                 <Frame x:Name="AssignmentPanel" />
-            </Grid>
-            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10,0,0,0" >
-                <Button Content="Match Opgaver" Margin="0,0,5,0"/>
-                <Button Content="Fjern Opgave" />
-            </StackPanel>
+            </Grid>            
 
             <!-- Bottom-left zone -->
             <Frame Grid.Row="3" x:Name="AutomaticSuggestions" />            
