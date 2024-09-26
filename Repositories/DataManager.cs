@@ -32,7 +32,7 @@ namespace RegionSyd.Repositories
                 while ((line = reader.ReadLine()) != null)
                 {
                     // Split the line into fields based on the semicolon separator
-                    string[] fields = line.Split(';');
+                    string[] fields = line.Split(',');
 
                     // Create a new Region object and add it to the list
                     Region region = new Region

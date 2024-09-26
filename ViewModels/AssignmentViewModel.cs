@@ -23,7 +23,7 @@ namespace RegionSyd.ViewModels
                 // Ensure the CSV has at least one row of data
                 for (int i = 1; i < lines.Length; i++)
                 {
-                    var fields = lines[i].Split(',');
+                    var fields = lines[i].Split(';');
 
                     // Ensure each row has enough fields (4 fields: Id, Til, Fra, Tid)
                     if (fields.Length >= 4)
