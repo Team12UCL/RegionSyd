@@ -28,7 +28,7 @@ namespace RegionSyd
             InitializeComponent();
             DataContext = mvm;
             string filePath = @"../../../Data/opgaver.csv";
-            mvm.LoadDataFromFile(filePath);
+            //mvm.LoadDataFromFile(filePath);
         }
     }
 }
