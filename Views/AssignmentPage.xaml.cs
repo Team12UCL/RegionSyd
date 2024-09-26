@@ -11,8 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using RegionSyd.ViewModels;
+using System.IO;
+
 
 namespace RegionSyd
 {
@@ -26,7 +27,8 @@ namespace RegionSyd
         {
             InitializeComponent();
             DataContext = mvm;
-            mvm.LoadDataFromFile(@"C:\Users\ivark\Desktop\Datamatiker Online\Semester 2\Projects\RegionSydFromScratch\Assignments.csv");
+            string filePath = @"../../../Data/opgaver.csv";
+            mvm.LoadDataFromFile(filePath);
         }
     }
 }
