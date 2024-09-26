@@ -3,15 +3,25 @@ using System.Collections.ObjectModel;
 
 public class Trip
 {
-    private int AmbulanceId { get; set; }
-    private int Task1Id { get; set; }
-    private int Task2Id { get; set; }
+    public int TripId { get; set; }
+    public int AmbulanceId { get; set; }
+    public int TaskId { get; set; }
 
-    public Trip(int ambulanceId, int task1Id, int task2Id)
+
+    public Trip( int ambulanceId, int taskId)
     {
+        
         AmbulanceId = ambulanceId;
-        Task1Id = task1Id;
-        Task2Id = task2Id;
+        TaskId = taskId;
+
+    }
+
+    public Trip(int tripId, int ambulanceId, int taskId)
+    {
+        TripId = tripId;
+        AmbulanceId = ambulanceId;
+        TaskId = taskId;
+        
     }
 
     // Metode til at finde alle "Status=Available" ambulancer

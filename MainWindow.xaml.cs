@@ -27,6 +27,7 @@ namespace RegionSyd
             // Sætter indholdet (pagen AutomaticMatchesPage) for de automatiske foreslag (Grid Row 3)
             AutomaticSuggestions.NavigationService.Navigate(new AutomaticMatchesPage());
             AssignmentPanel.NavigationService.Navigate(new AssignmentPage());
+            TaskInformationTab.NavigationService.Navigate(new TaskInformationPage());
         }
 
         private void DataDisplay_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -54,7 +54,23 @@
             <!-- Center-right zone (Map) -->
             <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="1" Margin="10">
                 <!-- Replace with actual map control -->
-                <Image Source="Images/Danmarkskort.png" Width="900"/>
+                <TabControl x:Name="Tab">
+                    <!-- Tab 1 -->
+                    <TabItem Header="Kort">
+                        <Image Source="Images/Danmarkskort.png" Width="900"/>
+                    </TabItem>
+                    <!-- Tab 2 -->
+                    <TabItem Header="Opgave Information">
+                        <Frame x:Name="TaskInformationTab" />
+                    </TabItem>
+                    <!-- Tab 3 -->
+                    <TabItem Header="Opret Kørsel">
+                        <Image Source="Images/Danmarkskort.png" Width="900"/>
+                    </TabItem>
+                    
+                    
+                </TabControl>
+
             </Border>
         </Grid>
     </Grid>
