@@ -1,11 +1,11 @@
-﻿TaskId;Origin;Destination;PickupTime;DropoffTime;Distance (km)
-1;Rigshospitalet, Blegdamsvej 9, 2100 Koebenhavn Ø;Soendergade 15, 4900 Nakskov;2024-09-26 08:30:00;2024-09-26 11:30:00;165
-2;Vindegade 32, 5000 Odense C;Odense Universitetshospital, J.B. Winsloews Vej 4, 5000 Odense C;2024-09-26 09:45:00;2024-09-26 10:00:00;3
-3;Aarhus Universitetshospital, Palle Juul-Jensens Boulevard 99, 8200 Aarhus N;Storegade 5, 6880 Tarm;2024-09-26 10:15:00;2024-09-26 12:00:00;120
-4;Noerregade 20, 9000 Aalborg;Aalborg Universitetshospital, Hobrovej 18-22, 9000 Aalborg;2024-09-26 11:30:00;2024-09-26 11:45:00;3
-5;Holbaek Sygehus, Smedelundsgade 60, 4300 Holbaek;Algade 45, 4000 Roskilde;2024-09-26 13:00:00;2024-09-26 13:45:00;34
-6;Hoejgade 8, 7100 Vejle;Sydvestjysk Sygehus, Finsensgade 35, 6700 Esbjerg;2024-09-26 14:15:00;2024-09-26 15:45:00;82
-7;Nykoebing Falster Sygehus, Fjordvej 15, 4800 Nykoebing F;Skolegade 23, 4760 Vordingborg;2024-09-26 15:30:00;2024-09-26 16:15:00;37
-8;Bredgade 17, 7400 Herning;Hospitalsenheden Vest, Gl. Landevej 61, 7400 Herning;2024-09-26 16:45:00;2024-09-26 17:00:00;2
-9;Herlev Hospital, Borgmester Ib Juuls Vej 1, 2730 Herlev;Strandvejen 100, 2900 Hellerup;2024-09-26 18:00:00;2024-09-26 18:45:00;16
-10;Soendergade 3, 8600 Silkeborg;Regionshospitalet Viborg, Heibergs Allé 4, 8800 Viborg;2024-09-26 19:15:00;2024-09-26 20:00:00;43
+﻿TaskId,Origin,Destination,PickupTime,DropoffTime,Distance (km),OriginRegionId,DestinationRegionId
+1,"Rigshospitalet, Blegdamsvej 9, 2100 Koebenhavn Ø","Odense Universitetshospital, J.B. Winsloews Vej 4, 5000 Odense C","2024-09-26 08:30:00","2024-09-26 10:15:00",165,3,1
+2,"Vindegade 32, 5000 Odense C","Aalborg Universitetshospital, Hobrovej 18-22, 9000 Aalborg","2024-09-26 09:45:00","2024-09-26 12:45:00",310,1,4
+3,"Aarhus Universitetshospital, Palle Juul-Jensens Boulevard 99, 8200 Aarhus N","Rigshospitalet, Blegdamsvej 9, 2100 Koebenhavn Ø","2024-09-26 10:15:00","2024-09-26 13:15:00",310,5,3
+4,"Noerregade 20, 9000 Aalborg","Holbaek Sygehus, Smedelundsgade 60, 4300 Holbaek","2024-09-26 11:30:00","2024-09-26 15:15:00",370,4,2
+5,"Holbaek Sygehus, Smedelundsgade 60, 4300 Holbaek","Aarhus Universitetshospital, Palle Juul-Jensens Boulevard 99, 8200 Aarhus N","2024-09-26 13:00:00","2024-09-26 15:15:00",220,2,5
+6,"Hoejgade 8, 7100 Vejle","Herlev Hospital, Borgmester Ib Juuls Vej 1, 2730 Herlev","2024-09-26 14:15:00","2024-09-26 16:45:00",235,1,3
+7,"Nykoebing Falster Sygehus, Fjordvej 15, 4800 Nykoebing F","Noerregade 20, 9000 Aalborg","2024-09-26 15:30:00","2024-09-26 20:15:00",460,2,4
+8,"Bredgade 17, 7400 Herning","Holbaek Sygehus, Smedelundsgade 60, 4300 Holbaek","2024-09-26 16:45:00","2024-09-26 19:15:00",260,5,2
+9,"Herlev Hospital, Borgmester Ib Juuls Vej 1, 2730 Herlev","Sydvestjysk Sygehus, Finsensgade 35, 6700 Esbjerg","2024-09-26 18:00:00","2024-09-26 20:45:00",295,3,1
+10,"Soendergade 3, 8600 Silkeborg","Nykoebing Falster Sygehus, Fjordvej 15, 4800 Nykoebing F","2024-09-26 19:15:00","2024-09-26 22:15:00",320,5,2
