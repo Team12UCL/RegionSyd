@@ -34,16 +34,5 @@ namespace RegionSyd
         {
 
         }
-
-        //private void PopulateTextBlock(TextBlock id, TextBlock fra, TextBlock til, TextBlock tid, string[] fields)
-        //{
-        //    if (fields.Length >= 4)
-        //    {
-        //        id.Text = fields[0];   // Id
-        //        fra.Text = fields[1];  // Fra
-        //        til.Text = fields[2];  // Til
-        //        tid.Text = fields[3];  // Tid
-        //    }
-        //}
     }
 }
