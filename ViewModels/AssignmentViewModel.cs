@@ -19,8 +19,8 @@ namespace RegionSyd.ViewModels
         private TaskRepository taskRepository { get; set; }
 
         public List<Models.Task> Tasks { get; set; }
-        ICommand MatchTaskCommand { get; set; }
-        ICommand RemoveTaskCommand { get; set; }
+        public ICommand MatchTaskCommand { get; set; }
+        public ICommand RemoveTaskCommand { get; set; }
 
         public Models.Task SelectedTask
         {
@@ -48,7 +48,7 @@ namespace RegionSyd.ViewModels
             Tasks = taskRepository.GetAllTasks();
 
             RemoveTaskCommand = new RelayCommand(RemoveTask, CanRemoveTask);
-            MatchTaskCommand = new RelayCommand(MatchTask, CanMatchTask);
+            //MatchTaskCommand = new RelayCommand(MatchTask, CanMatchTask);
         }
 
         private void MatchTask()
@@ -63,11 +63,12 @@ namespace RegionSyd.ViewModels
 
         private void RemoveTask()
         {
-            throw new NotImplementedException();
+            taskRepository.RemoveTask(SelectedTask.TaskId);
         }
+
         private bool CanRemoveTask()
         {
-            throw new NotImplementedException();
+            return SelectedTask != null;
         }
 
         // INotifyPropertyChanged implementation

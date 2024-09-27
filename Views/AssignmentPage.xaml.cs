@@ -23,14 +23,11 @@ namespace RegionSyd
     /// </summary>
     public partial class AssignmentPage : Page
     {
-        AssignmentViewModel mvm = new AssignmentViewModel();
 
         public AssignmentPage()
         {
             InitializeComponent();
-            DataContext = mvm;
-            string filePath = @"../../../Data/opgaver.csv";
-            //mvm.LoadDataFromFile(filePath);
+            this.DataContext = new AssignmentViewModel();
         }        
     }
 }
