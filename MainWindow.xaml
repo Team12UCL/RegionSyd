@@ -9,7 +9,7 @@
     <!--OBS: Width and height not set-->
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="350"/>
             <!-- Adjust width as needed for left panel -->
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
