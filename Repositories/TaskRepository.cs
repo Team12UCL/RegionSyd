@@ -60,7 +60,7 @@ namespace RegionSyd.Repositories
             MessageBox.Show($"Total tasks: {Tasks.Count}");
         }
 
-        public List<Models.Task> GetTasksByPickupRegionId(int regionId, bool isPickup)
+        public List<Models.Task> GetTasksByRegionId(int regionId, bool isPickup)
         {
             // Check if the task list is empty
             if (Tasks == null || Tasks.Count == 0)
