@@ -18,7 +18,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <ComboBox Grid.Row="0" Margin="10" x:Name="RegionSelector" />
+        <ComboBox Grid.Row="0" Margin="10" x:Name="RegionSelector" ItemsSource="{Binding Regions}" SelectedItem="{Binding SelectedRegion}" DisplayMemberPath="Name" />
 
         <DataGrid Grid.Row="1" ItemsSource="{Binding Tasks}" SelectedItem="{Binding SelectedTask}" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top"  AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>

@@ -19,7 +19,7 @@ namespace RegionSyd.Repositories
             Dispatchers = new List<Dispatcher>();
         }
 
-        public void GetAllRegions()
+        public List<Region> GetAllRegions()
         {
             string filePath = @"../../../Data/regioner.csv";            
 
@@ -32,7 +32,7 @@ namespace RegionSyd.Repositories
                 while ((line = reader.ReadLine()) != null)
                 {
                     // Split the line into fields based on the semicolon separator
-                    string[] fields = line.Split(',');
+                    string[] fields = line.Split(';');
 
                     // Create a new Region object and add it to the list
                     Region region = new Region
@@ -45,7 +45,7 @@ namespace RegionSyd.Repositories
                     Regions.Add(region);
                 }
             }
-
+            return Regions;
             MessageBox.Show($"Total regions: {Regions.Count}");
         }
         public void GetAllDispatchers()
