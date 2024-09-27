@@ -24,7 +24,7 @@
         </DataGrid>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
-            <Button Content="Match Opgaver" Margin="0,0,5,0"/>
+            <Button Content="Match Opgaver" Margin="0,0,5,0" Command="{Binding MatchTaskCommand}"/>
             <Button Content="Fjern Opgave" />
         </StackPanel>
 
