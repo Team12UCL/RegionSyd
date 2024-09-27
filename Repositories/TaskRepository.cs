@@ -60,6 +60,24 @@ namespace RegionSyd.Repositories
             MessageBox.Show($"Total tasks: {Tasks.Count}");
         }
 
+        public List<Models.Task> GetTasksByPickupRegionId(int regionId, bool isPickup)
+        {
+            // Check if the task list is empty
+            if (Tasks == null || Tasks.Count == 0)
+            {
+                GetAllTasks();
+            }
+
+            if (isPickup)
+            {
+                return Tasks.Where(t => t.PickUpRegionId == regionId).ToList();
+            }
+            else
+            {
+                return Tasks.Where(t => t.DropOffRegionId == regionId).ToList();
+            }
+        }
+
         public void RemoveTask(int taskId)
         {
             var task = Tasks.FirstOrDefault(t => t.TaskId == taskId);
