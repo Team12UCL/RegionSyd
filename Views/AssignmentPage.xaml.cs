@@ -24,24 +24,37 @@ namespace RegionSyd
     public partial class AssignmentPage : Page
     {
         AssignmentViewModel mvm = new AssignmentViewModel();
-        ICommand MatchTaskCommand { get; set; }
 
+        ICommand MatchTaskCommand { get; set; }
+        ICommand RemoveTaskCommand {  get; set; }
         public AssignmentPage()
         {
             InitializeComponent();
             DataContext = mvm;
             string filePath = @"../../../Data/opgaver.csv";
             //mvm.LoadDataFromFile(filePath);
-
+            RemoveTaskCommand = new RelayCommand(RemoveTask, CanRemoveTask);
             MatchTaskCommand = new RelayCommand(MatchTask, CanMatchTask);
         }
 
         private bool CanMatchTask()
         {
+           throw new NotImplementedException();
+        }
+
+        private bool CanRemoveTask()
+
+        {
             throw new NotImplementedException();
         }
 
+
         private void MatchTask()
+        {
+        }
+
+        private void RemoveTask()
+
         {
             throw new NotImplementedException();
         }

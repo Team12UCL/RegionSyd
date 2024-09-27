@@ -50,7 +50,7 @@
             <!-- Center-right zone (Map) -->
             <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="1" Margin="10">
                 <!-- Replace with actual map control -->
-                <TabControl x:Name="Tab">
+                <TabControl x:Name="Tab" SelectedIndex="{Binding SelectedTabIndex, Mode=TwoWay}">
                     <!-- Tab 1 -->
                     <TabItem Header="Kort">
                         <Image Source="Images/Danmarkskort.png" Width="900"/>
@@ -61,7 +61,7 @@
                     </TabItem>
                     <!-- Tab 3 -->
                     <TabItem Header="Opret Kørsel">
-                        <Image Source="Images/Danmarkskort.png" Width="900"/>
+                        <Frame x:Name="CreateTripTab" />
                     </TabItem>
                     
                     

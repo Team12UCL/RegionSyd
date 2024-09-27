@@ -1,58 +1,57 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using RegionSyd.Models;
 using RegionSyd.Repositories;
+using RegionSyd.Utility;
 
 namespace RegionSyd.ViewModels
 {
-    internal class AssignmentViewModel
+    public class AssignmentViewModel : INotifyPropertyChanged
     {
-        TaskRepository taskRepository { get; set; }
+        private Models.Task _selectedTask;
+        private TaskRepository taskRepository { get; set; }
+
         public List<Models.Task> Tasks { get; set; }
-        Models.Task SelectedTask { get; set; }
+
+        public Models.Task SelectedTask
+        {
+            get => _selectedTask;
+            set
+            {
+                if (_selectedTask != value)
+                {
+                    _selectedTask = value;
+                    OnPropertyChanged(nameof(SelectedTask));
+                   
+                    // Send a message to change the tab, only if SelectedTask is not null.
+                    if (_selectedTask != null)
+                    {
+                        Messenger.Send("ChangeTab", 1); // Change to tab 2 when a task is selected.
+                        Messenger.Send("SelectTask", SelectedTask);
+                    }
+                }
+            }
+        }
 
         public AssignmentViewModel()
         {
             taskRepository = new TaskRepository();
             Tasks = taskRepository.GetAllTasks();
-            //LoadDataFromFile("Tasks.csv");
         }
 
+        // INotifyPropertyChanged implementation
+        public event PropertyChangedEventHandler PropertyChanged;
 
-            //public void LoadDataFromFile(string filePath)
-            //{
-            //    try
-            //    {
-            //        // Read all lines from the CSV file
-            //        var lines = File.ReadAllLines(filePath);
-
-            //        // Ensure the CSV has at least one row of data
-            //        for (int i = 1; i < lines.Length; i++)
-            //        {
-            //            var fields = lines[i].Split(';');
-
-            //            // Ensure each row has enough fields (4 fields: Id, Til, Fra, Tid)
-            //            if (fields.Length >= 4)
-            //            {
-            //                Tasks.Add(new Models.Task
-            //                {
-            //                    TaskId = int.Parse(fields[0]),
-            //                    Origin = fields[1],
-            //                    Destination = fields[2],
-            //                    PickupTime = DateTime.Parse(fields[3])
-            //                });
-            //            }
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show($"Error reading file: {ex.Message}");
-            //    }
-            //}
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+    }
 }

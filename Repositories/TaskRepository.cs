@@ -40,7 +40,10 @@ namespace RegionSyd.Repositories
                             TaskId = int.Parse(fields[0]),
                             Origin = fields[1],
                             Destination = fields[2],
-                            PickupTime = DateTime.Parse(fields[3])
+                            PickupTime = DateTime.Parse(fields[3]),
+                            DropOffTime = DateTime.Parse(fields[4]),
+                            Distance = int.Parse(fields[5]),
+
                         });
                     }
                 }
@@ -94,6 +97,19 @@ namespace RegionSyd.Repositories
             {
                 MessageBox.Show($"Error saving file: {ex.Message}");
             }
+        }
+
+        // get task by id
+        public Models.Task? GetTaskById(int taskId)
+        {
+            // Check if the task list is empty
+            if (Tasks == null || Tasks.Count == 0)
+            {
+                GetAllTasks();     
+            }
+
+            // Return the task that matches the given taskId, or null if not found
+            return Tasks.FirstOrDefault(t => t.TaskId == taskId);
         }
 
     }

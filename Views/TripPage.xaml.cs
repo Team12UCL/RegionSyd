@@ -17,14 +17,14 @@ using System.Windows.Shapes;
 namespace RegionSyd.Views
 {
     /// <summary>
-    /// Interaction logic for TaskInformationPage.xaml
+    /// Interaction logic for TripPage.xaml
     /// </summary>
-    public partial class TaskInformationPage : Page
+    public partial class TripPage : Page
     {
-        public TaskInformationPage()
+        public TripPage()
         {
             InitializeComponent();
-            this.DataContext = new TaskInformationViewModel();
+            this.DataContext = new TripViewModel();
         }
     }
 }
