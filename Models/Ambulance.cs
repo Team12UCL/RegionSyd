@@ -9,17 +9,16 @@ namespace RegionSyd.Models
 {
     public class Ambulance
     {
-        public int AmbulanceId { get; set; }
-        public bool ActiveTrip { get; set; }
-        public string Status {  get; set; }
-        public List<Task> AssignedTasks { get; set; }
+         public int AmbulanceId { get; set; }
+         public int RegionId { get; set; }
+         public string Status { get; set; }
 
-
-        public Ambulance(int ambulanceId, string status) 
+        public Ambulance(int ambulanceId, int regionId, string status)
         {
             AmbulanceId = ambulanceId;
+            RegionId = regionId;
             Status = status;
-            AssignedTasks = new List<Task>();
         }
+        
     }
 }

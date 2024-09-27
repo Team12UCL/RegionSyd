@@ -10,6 +10,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using RegionSyd.Repositories;
+using RegionSyd.ViewModels;
 using RegionSyd.Views;
 
 
@@ -20,30 +21,20 @@ namespace RegionSyd
     /// </summary>
     public partial class MainWindow : Window
     {
+       
         public MainWindow()
         {
+            
             InitializeComponent();
+            this.DataContext = new MainViewModel();
 
             // Sætter indholdet (pagen AutomaticMatchesPage) for de automatiske foreslag (Grid Row 3)
             AutomaticSuggestions.NavigationService.Navigate(new AutomaticMatchesPage());
             AssignmentPanel.NavigationService.Navigate(new AssignmentPage());
             TaskInformationTab.NavigationService.Navigate(new TaskInformationPage());
+            CreateTripTab.NavigationService.Navigate(new TripPage());
         }
 
-        private void DataDisplay_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        //private void PopulateTextBlock(TextBlock id, TextBlock fra, TextBlock til, TextBlock tid, string[] fields)
-        //{
-        //    if (fields.Length >= 4)
-        //    {
-        //        id.Text = fields[0];   // Id
-        //        fra.Text = fields[1];  // Fra
-        //        til.Text = fields[2];  // Til
-        //        tid.Text = fields[3];  // Tid
-        //    }
-        //}
+       
     }
 }
