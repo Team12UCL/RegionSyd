@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using RegionSyd.ViewModels;
 using System.IO;
+using RegionSyd.Utility;
 
 
 namespace RegionSyd
@@ -23,12 +24,26 @@ namespace RegionSyd
     public partial class AssignmentPage : Page
     {
         AssignmentViewModel mvm = new AssignmentViewModel();
+        ICommand MatchTaskCommand { get; set; }
+
         public AssignmentPage()
         {
             InitializeComponent();
             DataContext = mvm;
             string filePath = @"../../../Data/opgaver.csv";
             //mvm.LoadDataFromFile(filePath);
+
+            MatchTaskCommand = new RelayCommand(MatchTask, CanMatchTask);
+        }
+
+        private bool CanMatchTask()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void MatchTask()
+        {
+            throw new NotImplementedException();
         }
     }
 }
