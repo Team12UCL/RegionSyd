@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
@@ -17,10 +18,19 @@ namespace RegionSyd.ViewModels
     {
         private Models.Task _selectedTask;
         private TaskRepository taskRepository { get; set; }
-
-        public List<Models.Task> Tasks { get; set; }
         public ICommand MatchTaskCommand { get; set; }
         public ICommand RemoveTaskCommand { get; set; }
+        private ObservableCollection<Models.Task> _tasks;
+
+        public ObservableCollection<Models.Task> Tasks
+        {
+            get { return _tasks; }
+            set 
+            {
+                _tasks = value;
+                OnPropertyChanged(nameof(Tasks));
+            }
+        }
 
         public Models.Task SelectedTask
         {
@@ -45,25 +55,26 @@ namespace RegionSyd.ViewModels
         public AssignmentViewModel()
         {
             taskRepository = new TaskRepository();
-            Tasks = taskRepository.GetAllTasks();
+            Tasks = new ObservableCollection<Models.Task>(taskRepository.GetAllTasks());
 
             RemoveTaskCommand = new RelayCommand(RemoveTask, CanRemoveTask);
             //MatchTaskCommand = new RelayCommand(MatchTask, CanMatchTask);
         }
 
-        private void MatchTask()
-        {
-            throw new NotImplementedException();
-        }
+        //private void MatchTask()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        private bool CanMatchTask()
-        {
-            throw new NotImplementedException();
-        }
+        //private bool CanMatchTask()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         private void RemoveTask()
         {
             taskRepository.RemoveTask(SelectedTask.TaskId);
+            Tasks.Remove(SelectedTask);
         }
 
         private bool CanRemoveTask()
