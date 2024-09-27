@@ -1,29 +1,37 @@
 ﻿using RegionSyd.Models;
 using System.Collections.ObjectModel;
 
-public class Trip
+namespace RegionSyd.Models
 {
-    public int TripId { get; set; }
-    public int AmbulanceId { get; set; }
-    public int TaskId { get; set; }
-
-
-    public Trip( int ambulanceId, int taskId)
+    public class Trip
     {
-        
-        AmbulanceId = ambulanceId;
-        TaskId = taskId;
+        public int TripId { get; set; }
+        public int AmbulanceId { get; set; }
+        public int TaskId { get; set; }
+        public int PickUpRegionId { get; set; }
+        public int DropOffRegionId { get; set; }
 
+
+        public Trip(int ambulanceId, int taskId, int pickUpRegionId, int dropOffRegionId)
+        {
+            TripId = 0;
+            AmbulanceId = ambulanceId;
+            TaskId = taskId;
+            PickUpRegionId = pickUpRegionId;
+            DropOffRegionId = dropOffRegionId;
+
+        }
+
+        public Trip(int tripId, int ambulanceId, int taskId, int pickUpRegionId, int dropOffRegionId)
+        {
+            TripId = tripId;
+            AmbulanceId = ambulanceId;
+            TaskId = taskId;
+            PickUpRegionId = pickUpRegionId;
+            DropOffRegionId = dropOffRegionId;
+
+        }
     }
-
-    public Trip(int tripId, int ambulanceId, int taskId)
-    {
-        TripId = tripId;
-        AmbulanceId = ambulanceId;
-        TaskId = taskId;
-        
-    }
-
     // Metode til at finde alle "Status=Available" ambulancer
     // Spørgsmål:
     // metoden returnerer en observable collection til visning i UI i stedet for en list? Konversionen kan også ske i viewmodel

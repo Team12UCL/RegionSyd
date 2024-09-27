@@ -18,6 +18,7 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <!-- Header Section -->
@@ -25,7 +26,9 @@
                FontSize="18" FontWeight="Bold" 
                Foreground="#333" 
                HorizontalAlignment="Center" 
-               Margin="0,10,0,20" />
+               Margin="0,10,0,20"
+               Grid.ColumnSpan="2"
+                   />
 
         <!-- Information Content Section -->
         <StackPanel Grid.Row="1" VerticalAlignment="Center">
@@ -79,11 +82,20 @@
             </StackPanel>
         </StackPanel>
 
-        <!-- Footer Section -->
-        <!--<Button Grid.Row="2" Content="Luk" Width="100" Height="30" 
-            HorizontalAlignment="Center" 
-            Background="#0078D7" Foreground="White" 
-            Margin="0,20,0,0" 
-            Click="CloseWindow_Click"/>-->
+        <StackPanel Margin="20" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+            
+            <!-- Ambulance Selection -->
+            <TextBlock Text="Vælg Ambulance:" FontWeight="Bold" Margin="10,20,0,5"/>
+            <ComboBox ItemsSource="{Binding Ambulances}"
+              DisplayMemberPath="AmbulanceId"  
+            SelectedItem="{Binding SelectedAmbulance}" Width="300" />
+
+            <!-- Create Trip Button -->
+            <Button Content="Opret Tur"
+            Command="{Binding CreateTripCommand}"
+            IsEnabled="{Binding Path=CreateTripCommand.CanExecute, Mode=OneWay}"
+            Margin="0,20,0,0" Width="150"/>
+        </StackPanel>
+       
     </Grid>
 </Page>

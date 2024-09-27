@@ -133,5 +133,18 @@ namespace RegionSyd.Repositories
             return Tasks.FirstOrDefault(t => t.TaskId == taskId);
         }
 
+        // Get tasks by region id and dateTime
+        public List<Models.Task> GetReturnTasksByRegionIdAndDateTime(int pickUpRegionId, int dropOffRegionId, DateTime dropOffTime)
+        {
+            // Check if the task list is empty
+            if (Tasks == null || Tasks.Count == 0)
+            {
+                GetAllTasks();
+            }
+
+            return Tasks.Where(t => (t.PickUpRegionId == pickUpRegionId && t.DropOffRegionId == dropOffRegionId && t.PickupTime > dropOffTime)).ToList();
+        }
+
+
     }
 }

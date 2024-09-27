@@ -9,3 +9,29 @@
 8;Bredgade 17, 7400 Herning;Holbaek Sygehus, Smedelundsgade 60, 4300 Holbaek;2024-09-26 16:45:00;2024-09-26 19:15:00;260;5;2
 9;Herlev Hospital, Borgmester Ib Juuls Vej 1, 2730 Herlev;Sydvestjysk Sygehus, Finsensgade 35, 6700 Esbjerg;2024-09-26 18:00:00;2024-09-26 20:45:00;295;3;1
 10;Soendergade 3, 8600 Silkeborg;Nykoebing Falster Sygehus, Fjordvej 15, 4800 Nykoebing F;2024-09-26 19:15:00;2024-09-26 22:15:00;320;5;2
+11;Aalborg Universitetshospital, Hobrovej 18-22, 9000 Aalborg;Vejle Sygehus, Kabbeltoft 25, 7100 Vejle;2024-09-27 07:30:00;2024-09-27 11:00:00;245;4;1
+12;Esbjerg Sygehus, Finsensgade 35, 6700 Esbjerg;Randers Regionshospital, Skovlyvej 15, 8900 Randers;2024-09-27 08:15:00;2024-09-27 11:45:00;210;1;5
+13;Svendborg Sygehus, Baagoes Alle 15, 5700 Svendborg;Rigshospitalet, Blegdamsvej 9, 2100 Koebenhavn Ø;2024-09-27 09:00:00;2024-09-27 12:30:00;180;1;3
+14;Holbaek Sygehus, Smedelundsgade 60, 4300 Holbaek;Viborg Sygehus, Toldboden 1, 8800 Viborg;2024-09-27 09:45:00;2024-09-27 13:30:00;250;2;5
+15;Rigshospitalet, Blegdamsvej 9, 2100 Koebenhavn Ø;Odense Universitetshospital, J.B. Winsloews Vej 4, 5000 Odense C;2024-09-27 10:15:00;2024-09-27 13:00:00;165;3;1
+16;Hvidovre Hospital, Kettegaards Alle 30, 2650 Hvidovre;Aarhus Universitetshospital, Palle Juul-Jensens Boulevard 99, 8200 Aarhus N;2024-09-27 11:00:00;2024-09-27 14:00:00;300;3;5
+17;Sydvestjysk Sygehus, Finsensgade 35, 6700 Esbjerg;Rigshospitalet, Blegdamsvej 9, 2100 Koebenhavn Ø;2024-09-27 12:00:00;2024-09-27 16:00:00;295;1;3
+18;Odense Universitetshospital, J.B. Winsloews Vej 4, 5000 Odense C;Holbaek Sygehus, Smedelundsgade 60, 4300 Holbaek;2024-09-27 13:30:00;2024-09-27 16:00:00;165;1;2
+19;Randers Regionshospital, Skovlyvej 15, 8900 Randers;Herlev Hospital, Borgmester Ib Juuls Vej 1, 2730 Herlev;2024-09-27 14:15:00;2024-09-27 17:30:00;320;5;3
+20;Aarhus Universitetshospital, Palle Juul-Jensens Boulevard 99, 8200 Aarhus N;Aalborg Universitetshospital, Hobrovej 18-22, 9000 Aalborg;2024-09-27 15:00:00;2024-09-27 16:45:00;115;5;4
+21;Rigshospitalet, Blegdamsvej 9, 2100 Koebenhavn Ø;Holbaek Sygehus, Smedelundsgade 60, 4300 Holbaek;2024-09-27 15:30:00;2024-09-27 16:45:00;100;3;2
+22;Herlev Hospital, Borgmester Ib Juuls Vej 1, 2730 Herlev;Odense Universitetshospital, J.B. Winsloews Vej 4, 5000 Odense C;2024-09-27 16:30:00;2024-09-27 18:45:00;160;3;1
+23;Aalborg Universitetshospital, Hobrovej 18-22, 9000 Aalborg;Viborg Sygehus, Toldboden 1, 8800 Viborg;2024-09-27 17:15:00;2024-09-27 18:45:00;110;4;5
+24;Esbjerg Sygehus, Finsensgade 35, 6700 Esbjerg;Herning Sygehus, Gl Landevej 61, 7400 Herning;2024-09-27 18:00:00;2024-09-27 19:30:00;140;1;5
+25;Holbaek Sygehus, Smedelundsgade 60, 4300 Holbaek;Hvidovre Hospital, Kettegaards Alle 30, 2650 Hvidovre;2024-09-27 18:45:00;2024-09-27 20:00:00;75;2;3
+26;Odense Universitetshospital, J.B. Winsloews Vej 4, 5000 Odense C;Esbjerg Sygehus, Finsensgade 35, 6700 Esbjerg;2024-09-27 19:15:00;2024-09-27 21:15:00;160;1;1
+27;Randers Regionshospital, Skovlyvej 15, 8900 Randers;Svendborg Sygehus, Baagoes Alle 15, 5700 Svendborg;2024-09-27 19:30:00;2024-09-27 22:15:00;220;5;1
+28;Aarhus Universitetshospital, Palle Juul-Jensens Boulevard 99, 8200 Aarhus N;Rigshospitalet, Blegdamsvej 9, 2100 Koebenhavn Ø;2024-09-27 20:00:00;2024-09-27 23:15:00;310;5;3
+29;Sydvestjysk Sygehus, Finsensgade 35, 6700 Esbjerg;Holbaek Sygehus, Smedelundsgade 60, 4300 Holbaek;2024-09-27 20:45:00;2024-09-28 00:30:00;295;1;2
+30;Viborg Sygehus, Toldboden 1, 8800 Viborg;Herlev Hospital, Borgmester Ib Juuls Vej 1, 2730 Herlev;2024-09-27 21:00:00;2024-09-28 00:45:00;290;5;3
+31;Herning Sygehus, Gl Landevej 61, 7400 Herning;Nykoebing Falster Sygehus, Fjordvej 15, 4800 Nykoebing F;2024-09-27 21:30:00;2024-09-28 02:00:00;360;5;2
+32;Svendborg Sygehus, Baagoes Alle 15, 5700 Svendborg;Aalborg Universitetshospital, Hobrovej 18-22, 9000 Aalborg;2024-09-28 07:00:00;2024-09-28 11:30:00;320;1;4
+33;Rigshospitalet, Blegdamsvej 9, 2100 Koebenhavn Ø;Esbjerg Sygehus, Finsensgade 35, 6700 Esbjerg;2024-09-28 07:30:00;2024-09-28 11:45:00;295;3;1
+34;Herlev Hospital, Borgmester Ib Juuls Vej 1, 2730 Herlev;Randers Regionshospital, Skovlyvej 15, 8900 Randers;2024-09-28 08:00:00;2024-09-28 11:45:00;260;3;5
+35;Odense Universitetshospital, J.B. Winsloews Vej 4, 5000 Odense C;Aalborg Universitetshospital, Hobrovej 18-22, 9000 Aalborg;2024-09-28 08:45:00;2024-09-28 12:30:00;310;1;4
+

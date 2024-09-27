@@ -57,8 +57,8 @@
                         <Frame x:Name="TaskInformationTab" />
                     </TabItem>
                     <!-- Tab 3 -->
-                    <TabItem Header="Opret Kørsel">
-                        <Frame x:Name="CreateTripTab" />
+                    <TabItem Header="Kørsler">
+                        <Frame x:Name="TripTab" />
                     </TabItem>
                     
                     

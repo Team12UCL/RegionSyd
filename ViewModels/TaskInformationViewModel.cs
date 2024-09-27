@@ -1,149 +1,106 @@
-﻿using RegionSyd.Utility;
+﻿using RegionSyd.Models;
+using RegionSyd.Repositories;
+using RegionSyd.Utility;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace RegionSyd.ViewModels
 {
-    public class TaskInformationViewModel : INotifyPropertyChanged
+    public class TaskInformationViewModel : ViewModelBase
     {
+        private readonly AmbulanceRepository _ambulanceRepository;
+        private readonly TripRepository _tripRepository;
+
         private Models.Task? _selectedTask;
+        private ObservableCollection<Ambulance> _ambulances;
+        private Ambulance _selectedAmbulance;
 
         public Models.Task? SelectedTask
         {
             get => _selectedTask;
-            set { 
+            set
+            {
                 _selectedTask = value;
                 OnPropertyChanged(nameof(SelectedTask));
+                
             }
         }
 
+        public ObservableCollection<Models.Task> Tasks { get; set; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        // Helper method to notify property changes
-        protected void OnPropertyChanged(string propertyName)
+        public ObservableCollection<Ambulance> Ambulances
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            get => _ambulances;
+            set
+            {
+                _ambulances = value;
+                OnPropertyChanged(nameof(Ambulances));
+            }
         }
 
+        public Ambulance SelectedAmbulance
+        {
+            get => _selectedAmbulance;
+            set
+            {
+                _selectedAmbulance = value;
+                OnPropertyChanged(nameof(SelectedAmbulance));
+               
+            }
+        }
 
+        public ICommand CreateTripCommand { get; set; }
 
-        // Constructor to initialize the ViewModel with task data (optional)
         public TaskInformationViewModel()
         {
-            SelectedTask = null;
+            _tripRepository = new TripRepository();
+            _ambulanceRepository = new AmbulanceRepository();
+
+            CreateTripCommand = new RelayCommand(CreateTrip, CanCreateTrip);
+
+            Ambulances = new ObservableCollection<Ambulance>(_ambulanceRepository.GetAvailableAmbulances());
 
             Messenger.Register("SelectTask", (param) =>
             {
-
                 if (param is Models.Task task && task != SelectedTask)
                 {
                     SelectedTask = task;
                 }
             });
+
+            Messenger.Register("UpdateAmbulances", (param) =>
+            {
+                Ambulances = new ObservableCollection<Ambulance>(_ambulanceRepository.GetAvailableAmbulances());
+            });
+        }
+
+        private void CreateTrip()
+        {
+            if (SelectedTask != null && SelectedAmbulance != null)
+            {
+                Trip newTrip = new Trip( SelectedAmbulance.AmbulanceId, SelectedTask.TaskId,
+                                        SelectedTask.PickUpRegionId, SelectedTask.DropOffRegionId);
+
+                _ambulanceRepository.UpdateAmbulanceStatus(SelectedAmbulance.AmbulanceId, "On call");
+                _tripRepository.SaveTrip(newTrip);
+                Ambulances = new ObservableCollection<Ambulance>(_ambulanceRepository.GetAvailableAmbulances());
+
+                Messenger.Send("UpdateTrips");
+            }
+        }
+
+        private bool CanCreateTrip()
+        {
+            return SelectedTask != null && SelectedAmbulance != null;
         }
     }
+
 }
 
 
-//// TaskId property
-//public string TaskId
-//{
-//    get => _taskId;
-//    set
-//    {
-//        if (_taskId != value)
-//        {
-//            _taskId = value;
-//            OnPropertyChanged(nameof(TaskId));
-//        }
-//    }
-//}
-
-//// DestinationLocation property
-//public string DestinationLocation
-//{
-//    get => _destinationLocation;
-//    set
-//    {
-//        if (_destinationLocation != value)
-//        {
-//            _destinationLocation = value;
-//            OnPropertyChanged(nameof(DestinationLocation));
-//        }
-//    }
-//}
-
-//// OriginLocation property
-//public string OriginLocation
-//{
-//    get => _originLocation;
-//    set
-//    {
-//        if (_originLocation != value)
-//        {
-//            _originLocation = value;
-//            OnPropertyChanged(nameof(OriginLocation));
-//        }
-//    }
-//}
-
-//// Status property
-//public string Status
-//{
-//    get => _status;
-//    set
-//    {
-//        if (_status != value)
-//        {
-//            _status = value;
-//            OnPropertyChanged(nameof(Status));
-//        }
-//    }
-//}
-
-//// PickupTime property
-//public DateTime PickupTime
-//{
-//    get => _pickupTime;
-//    set
-//    {
-//        if (_pickupTime != value)
-//        {
-//            _pickupTime = value;
-//            OnPropertyChanged(nameof(PickupTime));
-//        }
-//    }
-//}
-
-//// EstimatedDriveTime property
-//public TimeSpan EstimatedDriveTime
-//{
-//    get => _estimatedDriveTime;
-//    set
-//    {
-//        if (_estimatedDriveTime != value)
-//        {
-//            _estimatedDriveTime = value;
-//            OnPropertyChanged(nameof(EstimatedDriveTime));
-//        }
-//    }
-//}
-
-//// Distance property
-//public double Distance
-//{
-//    get => _distance;
-//    set
-//    {
-//        if (_distance != value)
-//        {
-//            _distance = value;
-//            OnPropertyChanged(nameof(Distance));
-//        }
-//    }
-//}

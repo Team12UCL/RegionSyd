@@ -32,7 +32,7 @@ namespace RegionSyd
             AutomaticSuggestions.NavigationService.Navigate(new AutomaticMatchesPage());
             AssignmentPanel.NavigationService.Navigate(new AssignmentPage());
             TaskInformationTab.NavigationService.Navigate(new TaskInformationPage());
-            CreateTripTab.NavigationService.Navigate(new TripPage());
+            TripTab.NavigationService.Navigate(new TripPage());
         }
     }
 }

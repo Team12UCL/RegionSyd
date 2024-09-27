@@ -1,11 +1,11 @@
 AmbulanceId;RegionId;Status
-1;101;Available
-2;102;Available
-3;101;Available
-4;103;Available
-5;102;Available
-6;104;Available
-7;101;Available
-8;103;Available
-9;104;Available
-10;102;Available
+1;1;Available
+2;2;Available
+3;1;Available
+4;3;On call
+5;2;Available
+6;4;Available
+7;5;On call
+8;3;Available
+9;4;Available
+10;2;Available

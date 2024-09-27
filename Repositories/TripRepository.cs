@@ -1,13 +1,15 @@
-﻿using System;
+﻿using RegionSyd.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace RegionSyd.Repositories
 {
     public class TripRepository
     {
         public List<Trip> Trips { get; set; }
-        private string _path = "../../../Data/Trips.csv";
+        private string _path = "../../../Data/trips.csv";
 
         public TripRepository()
         {
@@ -23,9 +25,9 @@ namespace RegionSyd.Repositories
             Trips.Add(trip);
 
             // Append the new trip to the file
-            using (var writer = new StreamWriter(_path, append: true)) // Use append mode
+            using (var writer = new StreamWriter(_path, append: true))
             {
-                writer.WriteLine($"{trip.TripId};{trip.AmbulanceId};{trip.TaskId}");
+                writer.WriteLine($"{trip.TripId};{trip.AmbulanceId};{trip.TaskId};{trip.PickUpRegionId};{trip.DropOffRegionId}");
             }
         }
 
@@ -38,12 +40,13 @@ namespace RegionSyd.Repositories
             {
                 Trips.Remove(tripToRemove);
 
-                // Rewrite the entire CSV file
-                using (var writer = new StreamWriter(_path, append: false)) // Overwrite file
+                // Rewrite the entire CSV file (not in append mode)
+                using (var writer = new StreamWriter(_path)) // Overwrite file
                 {
+                    writer.WriteLine("TripId;AmbulanceId;TaskId;PickUpRegionId;DropOffRegionId"); // Include the header
                     foreach (var t in Trips)
                     {
-                        writer.WriteLine($"{t.TripId};{t.AmbulanceId};{t.TaskId}");
+                        writer.WriteLine($"{t.TripId};{t.AmbulanceId};{t.TaskId};{t.PickUpRegionId};{t.DropOffRegionId}");
                     }
                 }
             }
@@ -53,24 +56,30 @@ namespace RegionSyd.Repositories
         public List<Trip> LoadTrips()
         {
             Trips.Clear(); // Clear the list before loading
+
+            // Ensure the file exists, but don't create it immediately
             if (!File.Exists(_path))
             {
-                File.Create(_path).Close(); // Create the file if it doesn't exist
+                return Trips; // Return an empty list if no file exists
             }
 
             using (var reader = new StreamReader(_path))
             {
                 string line;
-                reader.ReadLine(); // Skip header line
+                reader.ReadLine(); // Skip the header line
                 while ((line = reader.ReadLine()) != null)
                 {
                     var values = line.Split(';');
-                    if (values.Length == 3)
+                    if (values.Length == 5) // Ensure correct number of fields
                     {
                         int tripId = int.Parse(values[0]);
                         int ambulanceId = int.Parse(values[1]);
                         int taskId = int.Parse(values[2]);
-                        Trip trip = new Trip(tripId, ambulanceId, taskId);
+                        int pickUpRegionId = int.Parse(values[3]);
+                        int dropOffRegionId = int.Parse(values[4]);
+
+                        // Create a new Trip object
+                        Trip trip = new Trip(tripId, ambulanceId, taskId, pickUpRegionId, dropOffRegionId);
                         Trips.Add(trip);
                     }
                 }

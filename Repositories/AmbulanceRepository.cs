@@ -88,5 +88,38 @@ namespace RegionSyd.Repositories
             }
             return Ambulances;
         }
+
+        // get available ambulances
+        public List<Ambulance> GetAvailableAmbulances()
+        {
+            return Ambulances.Where(a => a.Status == "Available").ToList();
+        }
+
+
+        // Update Ambulace status
+        public void UpdateAmbulanceStatus(int ambulanceId, string status)
+        {
+            var ambulance = Ambulances.FirstOrDefault(a => a.AmbulanceId == ambulanceId);
+            if (ambulance != null)
+            {
+                ambulance.Status = status;
+
+                // Rewrite the entire CSV file
+                using (var writer = new StreamWriter(_path, append: false))
+                {
+                    writer.WriteLine("AmbulanceId;RegionId;Status"); // Write header
+                    foreach (var a in Ambulances)
+                    {
+                        writer.WriteLine($"{a.AmbulanceId};{a.RegionId};{a.Status}");
+                    }
+                }
+            }
+        }
+
+        // get ambulance by id
+        public Ambulance? GetAmbulanceById(int ambulanceId)
+        {
+            return Ambulances.FirstOrDefault(a => a.AmbulanceId == ambulanceId);
+        }
     }
 }
