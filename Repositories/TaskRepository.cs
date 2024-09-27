@@ -66,7 +66,8 @@ namespace RegionSyd.Repositories
             {
                 Tasks.Remove(task);
                 MessageBox.Show($"Task with Id: {taskId} removed");
-                SaveTasks();
+                // Vi kunne gemme ændringen her, men da vi ikke laver nye tasks i vores program, er det ikke nødvendigt
+                //SaveTasks();
             }
             else
             {
