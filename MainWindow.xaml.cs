@@ -34,7 +34,5 @@ namespace RegionSyd
             TaskInformationTab.NavigationService.Navigate(new TaskInformationPage());
             CreateTripTab.NavigationService.Navigate(new TripPage());
         }
-
-       
     }
 }
