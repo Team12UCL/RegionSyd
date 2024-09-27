@@ -19,6 +19,8 @@ namespace RegionSyd.ViewModels
         private TaskRepository taskRepository { get; set; }
 
         public List<Models.Task> Tasks { get; set; }
+        ICommand MatchTaskCommand { get; set; }
+        ICommand RemoveTaskCommand { get; set; }
 
         public Models.Task SelectedTask
         {
@@ -29,7 +31,7 @@ namespace RegionSyd.ViewModels
                 {
                     _selectedTask = value;
                     OnPropertyChanged(nameof(SelectedTask));
-                   
+
                     // Send a message to change the tab, only if SelectedTask is not null.
                     if (_selectedTask != null)
                     {
@@ -44,6 +46,28 @@ namespace RegionSyd.ViewModels
         {
             taskRepository = new TaskRepository();
             Tasks = taskRepository.GetAllTasks();
+
+            RemoveTaskCommand = new RelayCommand(RemoveTask, CanRemoveTask);
+            MatchTaskCommand = new RelayCommand(MatchTask, CanMatchTask);
+        }
+
+        private void MatchTask()
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool CanMatchTask()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void RemoveTask()
+        {
+            throw new NotImplementedException();
+        }
+        private bool CanRemoveTask()
+        {
+            throw new NotImplementedException();
         }
 
         // INotifyPropertyChanged implementation
