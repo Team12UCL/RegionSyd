@@ -29,11 +29,7 @@
             <!-- Middle-left zone -->
             <Grid Grid.Row="1" Margin="10" x:Name="DataDisplay">
                 <Frame x:Name="AssignmentPanel" />
-            </Grid>
-            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10,0,0,0" >
-                <Button Content="Match Opgaver" Margin="0,0,5,0"/>
-                <Button Command="{ Binding RemoveTaskCommand}" Content="Fjern Opgave" />
-            </StackPanel>
+            </Grid>            
 
             <!-- Bottom-left zone -->
             <Frame Grid.Row="3" x:Name="AutomaticSuggestions" />            
@@ -54,7 +50,7 @@
             <!-- Center-right zone (Map) -->
             <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="1" Margin="10">
                 <!-- Replace with actual map control -->
-                <TabControl x:Name="Tab">
+                <TabControl x:Name="Tab" SelectedIndex="{Binding SelectedTabIndex, Mode=TwoWay}">
                     <!-- Tab 1 -->
                     <TabItem Header="Kort">
                         <Image Source="Images/Danmarkskort.png" Width="900"/>
@@ -65,7 +61,7 @@
                     </TabItem>
                     <!-- Tab 3 -->
                     <TabItem Header="Opret Kørsel">
-                        <Image Source="Images/Danmarkskort.png" Width="900"/>
+                        <Frame x:Name="CreateTripTab" />
                     </TabItem>
                     
                     

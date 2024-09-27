@@ -1,0 +1,100 @@
+﻿<Page x:Class="RegionSyd.Views.TripPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RegionSyd.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TripPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="300" />
+        </Grid.ColumnDefinitions>
+        
+        
+        <StackPanel Margin="20" Grid.Column="0">
+            <!-- Task Selection -->
+            <TextBlock Text="Select Task:" FontWeight="Bold" Margin="0,0,0,5"/>
+            <ComboBox ItemsSource="{Binding Tasks}"
+                      DisplayMemberPath="TaskId"  
+                SelectedItem="{Binding SelectedTask}" Width="300"/>
+
+            <!-- Ambulance Selection -->
+            <TextBlock Text="Select Ambulance:" FontWeight="Bold" Margin="10,20,0,5"/>
+            <ComboBox ItemsSource="{Binding Ambulances}"
+                      DisplayMemberPath="AmbulanceId"  
+                    SelectedItem="{Binding SelectedAmbulance}" Width="300" />
+
+            <!-- Create Trip Button -->
+            <Button Content="Create Trip"
+                    Command="{Binding CreateTripCommand}"
+                    IsEnabled="{Binding Path=CreateTripCommand.CanExecute, Mode=OneWay}"
+                    Margin="0,20,0,0" Width="150"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Column="1">
+            <!-- Header Section -->
+            <TextBlock Text="Opgave Information" 
+                FontSize="18" FontWeight="Bold" 
+                Foreground="#333" 
+                HorizontalAlignment="Center" 
+                Margin="0,10,0,20" />
+
+            <!-- Information Content Section -->
+            <StackPanel VerticalAlignment="Center" Margin="10">
+
+                <!-- Opgave ID -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="Opgave ID:" FontWeight="Bold" Width="150" Foreground="#555"/>
+                    <TextBlock Text="{Binding SelectedTask.TaskId}" Foreground="#333"/>
+                </StackPanel>
+
+                <!-- Til Lokation -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="Til Lokation:" FontWeight="Bold" Width="150" Foreground="#555"/>
+                    <TextBlock Text="{Binding SelectedTask.Destination}" Foreground="#333"/>
+                </StackPanel>
+
+                <!-- Fra Lokation -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="Fra Lokation:" FontWeight="Bold" Width="150" Foreground="#555"/>
+                    <TextBlock Text="{Binding SelectedTask.Origin}" Foreground="#333"/>
+                </StackPanel>
+
+                <!-- Status -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="Status:" FontWeight="Bold" Width="150" Foreground="#555"/>
+                    <TextBlock Text="{Binding SelectedTask.Status}" Foreground="#333"/>
+                </StackPanel>
+
+                <!-- Afhentnings Tidspunkt -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="Afhentnings Tidspunkt:" FontWeight="Bold" Width="150" Foreground="#555"/>
+                    <TextBlock Text="{Binding SelectedTask.PickupTime}" Foreground="#333"/>
+                </StackPanel>
+
+                <!-- Afsaetnins Tidspunkt -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="Afhentnings Tidspunkt:" FontWeight="Bold" Width="150" Foreground="#555"/>
+                    <TextBlock Text="{Binding SelectedTask.DropOffTime}" Foreground="#333"/>
+                </StackPanel>
+
+                <!-- Estimeret Køretid -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="Estimeret Køretid:" FontWeight="Bold" Width="150" Foreground="#555"/>
+                    <TextBlock Text="{Binding SelectedTask.EstimatedDriveTime}" Foreground="#333"/>
+                </StackPanel>
+
+                <!-- Afstand -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="Afstand:" FontWeight="Bold" Width="150" Foreground="#555"/>
+                    <TextBlock Text="{Binding SelectedTask.Distance}" Foreground="#333"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        
+    </Grid>
+</Page>

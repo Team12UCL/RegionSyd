@@ -61,6 +61,7 @@ namespace RegionSyd.Repositories
             using (var reader = new StreamReader(_path))
             {
                 string line;
+                reader.ReadLine(); // Skip header line
                 while ((line = reader.ReadLine()) != null)
                 {
                     var values = line.Split(';');
