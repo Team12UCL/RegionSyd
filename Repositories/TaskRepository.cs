@@ -33,7 +33,7 @@ namespace RegionSyd.Repositories
                     var fields = lines[i].Split(';');
 
                     // Ensure each row has enough fields (4 fields: Id, Til, Fra, Tid)
-                    if (fields.Length >= 4)
+                    if (fields.Length >= 6)
                     {
                         Tasks.Add(new Models.Task
                         {
@@ -43,6 +43,8 @@ namespace RegionSyd.Repositories
                             PickupTime = DateTime.Parse(fields[3]),
                             DropOffTime = DateTime.Parse(fields[4]),
                             Distance = int.Parse(fields[5]),
+                            PickUpRegionId = int.Parse(fields[6]),
+                            DropOffRegionId = int.Parse(fields[7]),
 
                         });
                     }
