@@ -48,7 +48,7 @@ namespace RegionSyd.Repositories
             return Regions;
             MessageBox.Show($"Total regions: {Regions.Count}");
         }
-        public void GetAllDispatchers()
+        public List<Dispatcher> GetAllDispatchers()
         {
             string filePath = @"../../../Data/disponenter.csv";
 
@@ -76,6 +76,7 @@ namespace RegionSyd.Repositories
                     Dispatchers.Add(dispatcher);
                 }
             }
+            return Dispatchers;
             MessageBox.Show($"Total dispatchers: {Dispatchers.Count}");
         }
     }
