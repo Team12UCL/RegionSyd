@@ -13,7 +13,7 @@ namespace RegionSyd.Models
         public string Origin { get; set; }
         public DateTime PickupTime { get; set; }
         public DateTime DropOffTime { get; set; }
-        public int Distance { get; set; }
+        public decimal Distance { get; set; }
 
 
         public string Description { get; set; }

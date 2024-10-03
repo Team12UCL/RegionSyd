@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Input;
 using RegionSyd.Models;
 using RegionSyd.Repositories;
+using RegionSyd.RepositoriesSQL;
 using RegionSyd.Utility;
 
 namespace RegionSyd.ViewModels
@@ -17,7 +18,7 @@ namespace RegionSyd.ViewModels
     public class AssignmentViewModel : INotifyPropertyChanged
     {
         private Models.Task _selectedTask;
-        private TaskRepository taskRepository { get; set; }
+        private TaskRepositorySQL taskRepository { get; set; }
         private DataManager dataManager { get; set; }
         public ICommand MatchTaskCommand { get; set; }
         public ICommand RemoveTaskCommand { get; set; }
@@ -90,7 +91,7 @@ namespace RegionSyd.ViewModels
 
         public AssignmentViewModel()
         {
-            taskRepository = new TaskRepository();
+            taskRepository = new TaskRepositorySQL();
             Tasks = new ObservableCollection<Models.Task>(taskRepository.GetAllTasks());
             dataManager = new DataManager();
             Regions = new ObservableCollection<Region>(dataManager.GetAllRegions());
