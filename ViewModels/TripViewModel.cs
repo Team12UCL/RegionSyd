@@ -1,5 +1,6 @@
 ﻿using RegionSyd.Models;
-using RegionSyd.Repositories;
+
+using RegionSyd.RepositoriesSQL;
 using RegionSyd.Utility;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,9 @@ namespace RegionSyd.ViewModels
 {
     public class TripViewModel : ViewModelBase
     {
-        private readonly TripRepository _tripRepository;
-        private readonly TaskRepository _taskRepository;
-        private readonly AmbulanceRepository _ambulanceRepository;
+        private readonly TripRepositorySQL _tripRepository;
+        private readonly TaskRepositorySQL _taskRepository;
+        private readonly AmbulanceRepositorySQL _ambulanceRepository;
 
         private ObservableCollection<Trip> _trips;
         private ObservableCollection<Models.Task> _returnTasks;
@@ -83,9 +84,9 @@ namespace RegionSyd.ViewModels
 
         public TripViewModel()
         {
-            _tripRepository = new TripRepository();
-            _taskRepository = new TaskRepository();
-            _ambulanceRepository = new AmbulanceRepository();
+            _tripRepository = new TripRepositorySQL();
+            _taskRepository = new TaskRepositorySQL();
+            _ambulanceRepository = new AmbulanceRepositorySQL();
 
             // Initialize properties
             Tasks = new ObservableCollection<Models.Task>(_taskRepository.GetAllTasks());
@@ -160,7 +161,7 @@ namespace RegionSyd.ViewModels
                 {
                     return;
                 }
-                _tripRepository.RemoveTrip(trip);
+                _tripRepository.RemoveTrip(trip.TripId);
                 _ambulanceRepository.UpdateAmbulanceStatus(trip.AmbulanceId, "Available");
                 Trips = new ObservableCollection<Trip>(_tripRepository.LoadTrips());
 

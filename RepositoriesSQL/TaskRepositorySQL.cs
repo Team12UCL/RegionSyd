@@ -12,7 +12,9 @@ namespace RegionSyd.RepositoriesSQL
 
         public List<Models.Task> Tasks { get; set; }
 
-        public TaskRepositorySQL(string connectionString = "Data Source=(localdb)\\GustavDB;Initial Catalog=RegionSyd;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False")
+        public TaskRepositorySQL(string connectionString = 
+            "Data Source=(localdb)\\GustavDB;Initial Catalog=RegionSyd;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False"
+            )
         {
             _connectionString = connectionString;
             Tasks = new List<Models.Task>();
@@ -71,7 +73,7 @@ namespace RegionSyd.RepositoriesSQL
 
         public void RemoveTask(int taskId)
         {
-            string query = "DELETE FROM Tasks WHERE TaskId = @TaskId"; // Replace with your actual table name
+            string query = "DELETE FROM Task WHERE TaskId = @TaskId"; // Replace with your actual table name
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -100,7 +102,7 @@ namespace RegionSyd.RepositoriesSQL
 
         public void SaveTasks()
         {
-            string query = "INSERT INTO Tasks (TaskId, Origin, Destination, PickupTime, DropOffTime, Distance, PickUpRegionId, DropOffRegionId) VALUES (@TaskId, @Origin, @Destination, @PickupTime, @DropOffTime, @Distance, @PickUpRegionId, @DropOffRegionId)"; // Replace with your actual table name
+            string query = "INSERT INTO Task (TaskId, Origin, Destination, PickupTime, DropOffTime, Distance, PickUpRegionId, DropOffRegionId) VALUES (@TaskId, @Origin, @Destination, @PickupTime, @DropOffTime, @Distance, @PickUpRegionId, @DropOffRegionId)"; // Replace with your actual table name
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -134,7 +136,7 @@ namespace RegionSyd.RepositoriesSQL
 
         public Models.Task? GetTaskById(int taskId)
         {
-            string query = "SELECT * FROM Tasks WHERE TaskId = @TaskId"; // Replace with your actual table name
+            string query = "SELECT * FROM Task WHERE TaskId = @TaskId"; // Replace with your actual table name
             Models.Task? task = null;
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -155,7 +157,7 @@ namespace RegionSyd.RepositoriesSQL
                             Destination = reader.GetString(2),
                             PickupTime = reader.GetDateTime(3),
                             DropOffTime = reader.GetDateTime(4),
-                            Distance = reader.GetInt32(5),
+                            Distance = reader.GetDecimal(5),
                             PickUpRegionId = reader.GetInt32(6),
                             DropOffRegionId = reader.GetInt32(7)
                         };

@@ -1,5 +1,5 @@
 ﻿using RegionSyd.Models;
-using RegionSyd.Repositories;
+using RegionSyd.RepositoriesSQL;
 using RegionSyd.Utility;
 using System;
 using System.Collections.Generic;
@@ -14,8 +14,8 @@ namespace RegionSyd.ViewModels
 {
     public class TaskInformationViewModel : ViewModelBase
     {
-        private readonly AmbulanceRepository _ambulanceRepository;
-        private readonly TripRepository _tripRepository;
+        private readonly AmbulanceRepositorySQL _ambulanceRepository;
+        private readonly TripRepositorySQL _tripRepository;
 
         private Models.Task? _selectedTask;
         private ObservableCollection<Ambulance> _ambulances;
@@ -59,8 +59,8 @@ namespace RegionSyd.ViewModels
 
         public TaskInformationViewModel()
         {
-            _tripRepository = new TripRepository();
-            _ambulanceRepository = new AmbulanceRepository();
+            _tripRepository = new TripRepositorySQL();
+            _ambulanceRepository = new AmbulanceRepositorySQL();
 
             CreateTripCommand = new RelayCommand(CreateTrip, CanCreateTrip);
 

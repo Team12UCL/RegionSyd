@@ -1,25 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Input;
-using RegionSyd.Models;
-using RegionSyd.Repositories;
+﻿using RegionSyd.Models;
 using RegionSyd.RepositoriesSQL;
 using RegionSyd.Utility;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Windows.Input;
 
 namespace RegionSyd.ViewModels
 {
     public class AssignmentViewModel : INotifyPropertyChanged
     {
         private Models.Task _selectedTask;
-        private TaskRepositorySQL taskRepository { get; set; }
-        private DataManager dataManager { get; set; }
+        private TaskRepositorySQL taskRepositorySQL { get; set; }
+        private DataManagerSQL dataManager { get; set; }
         public ICommand MatchTaskCommand { get; set; }
         public ICommand RemoveTaskCommand { get; set; }
         private ObservableCollection<Models.Task> _tasks;
@@ -91,9 +83,9 @@ namespace RegionSyd.ViewModels
 
         public AssignmentViewModel()
         {
-            taskRepository = new TaskRepositorySQL();
-            Tasks = new ObservableCollection<Models.Task>(taskRepository.GetAllTasks());
-            dataManager = new DataManager();
+            taskRepositorySQL = new TaskRepositorySQL();
+            Tasks = new ObservableCollection<Models.Task>(taskRepositorySQL.GetAllTasks());
+            dataManager = new DataManagerSQL();
             Regions = new ObservableCollection<Region>(dataManager.GetAllRegions());
 
             RemoveTaskCommand = new RelayCommand(RemoveTask, CanRemoveTask);
@@ -112,7 +104,7 @@ namespace RegionSyd.ViewModels
 
         private void RemoveTask()
         {
-            taskRepository.RemoveTask(SelectedTask.TaskId);
+            taskRepositorySQL.RemoveTask(SelectedTask.TaskId);
             Tasks.Remove(SelectedTask);
         }
 
@@ -130,7 +122,7 @@ namespace RegionSyd.ViewModels
         }
         public void SetTasksOnRegionSelect()
         {
-            Tasks = new ObservableCollection<Models.Task>(taskRepository.GetTasksByRegionId(SelectedRegion.Id, true));
+            Tasks = new ObservableCollection<Models.Task>(taskRepositorySQL.GetTasksByRegionId(SelectedRegion.Id, true));
         }
     }
 }
