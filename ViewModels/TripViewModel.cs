@@ -134,10 +134,11 @@ namespace RegionSyd.ViewModels
                 Trip newTrip = new Trip(
                     SelectedAmbulance.AmbulanceId, SelectedReturnTask.TaskId, SelectedReturnTask.PickUpRegionId, SelectedReturnTask.DropOffRegionId);
 
-
+                _taskRepository.UpdateTaskAvailability(SelectedReturnTask.TaskId, false);
                 _tripRepository.SaveTrip(newTrip);
                 Trips = new ObservableCollection<Trip>(_tripRepository.LoadTrips());
                 MessageBox.Show($"Trip with Id: {newTrip.TripId} created");
+                Messenger.Send("UpdateTasks");
             }
         }
 
@@ -163,9 +164,11 @@ namespace RegionSyd.ViewModels
                 }
                 _tripRepository.RemoveTrip(trip.TripId);
                 _ambulanceRepository.UpdateAmbulanceStatus(trip.AmbulanceId, "Available");
+                _taskRepository.UpdateTaskAvailability(trip.TaskId, true);
                 Trips = new ObservableCollection<Trip>(_tripRepository.LoadTrips());
 
                 Messenger.Send("UpdateAmbulances");
+                Messenger.Send("UpdateTasks");
             }
         }
     }

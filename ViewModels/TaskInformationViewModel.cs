@@ -16,6 +16,7 @@ namespace RegionSyd.ViewModels
     {
         private readonly AmbulanceRepositorySQL _ambulanceRepository;
         private readonly TripRepositorySQL _tripRepository;
+        private readonly TaskRepositorySQL _taskRepository;
 
         private Models.Task? _selectedTask;
         private ObservableCollection<Ambulance> _ambulances;
@@ -61,6 +62,7 @@ namespace RegionSyd.ViewModels
         {
             _tripRepository = new TripRepositorySQL();
             _ambulanceRepository = new AmbulanceRepositorySQL();
+            _taskRepository = new TaskRepositorySQL();
 
             CreateTripCommand = new RelayCommand(CreateTrip, CanCreateTrip);
 
@@ -86,12 +88,14 @@ namespace RegionSyd.ViewModels
             {
                 Trip newTrip = new Trip( SelectedAmbulance.AmbulanceId, SelectedTask.TaskId,
                                         SelectedTask.PickUpRegionId, SelectedTask.DropOffRegionId);
-
+                
                 _ambulanceRepository.UpdateAmbulanceStatus(SelectedAmbulance.AmbulanceId, "On call");
                 _tripRepository.SaveTrip(newTrip);
+                _taskRepository.UpdateTaskAvailability(SelectedTask.TaskId, false);
                 Ambulances = new ObservableCollection<Ambulance>(_ambulanceRepository.GetAvailableAmbulances());
 
                 Messenger.Send("UpdateTrips");
+                Messenger.Send("UpdateTasks");
             }
         }
 

@@ -22,6 +22,7 @@ namespace RegionSyd.RepositoriesSQL
 
         public List<Models.Task> GetAllTasks()
         {
+            Tasks = [];
             string query = "SELECT * FROM Task"; // Replace with your actual table name
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -43,7 +44,8 @@ namespace RegionSyd.RepositoriesSQL
                             DropOffTime = reader.GetDateTime(4), // DropOffTime
                             Distance = reader.GetDecimal(5), // Distance_km (decimal)
                             PickUpRegionId = reader.GetInt32(6), // OriginRegionId
-                            DropOffRegionId = reader.GetInt32(7)
+                            DropOffRegionId = reader.GetInt32(7),
+                            IsAvailable = reader.GetBoolean(8) // IsTaken
                         });
                     }
 
@@ -55,7 +57,7 @@ namespace RegionSyd.RepositoriesSQL
                 }
             }
 
-            MessageBox.Show($"Total tasks: {Tasks.Count}");
+            
             return Tasks;
         }
 
@@ -102,7 +104,7 @@ namespace RegionSyd.RepositoriesSQL
 
         public void SaveTasks()
         {
-            string query = "INSERT INTO Task (TaskId, Origin, Destination, PickupTime, DropOffTime, Distance, PickUpRegionId, DropOffRegionId) VALUES (@TaskId, @Origin, @Destination, @PickupTime, @DropOffTime, @Distance, @PickUpRegionId, @DropOffRegionId)"; // Replace with your actual table name
+            string query = "INSERT INTO Task (TaskId, Origin, Destination, PickupTime, DropOffTime, Distance, PickUpRegionId, DropOffRegionId, IsAvailable) VALUES (@TaskId, @Origin, @Destination, @PickupTime, @DropOffTime, @Distance, @PickUpRegionId, @DropOffRegionId, @IsAvailable)"; // Replace with your actual table name
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -121,6 +123,8 @@ namespace RegionSyd.RepositoriesSQL
                         command.Parameters.AddWithValue("@Distance", task.Distance);
                         command.Parameters.AddWithValue("@PickUpRegionId", task.PickUpRegionId);
                         command.Parameters.AddWithValue("@DropOffRegionId", task.DropOffRegionId);
+                        command.Parameters.AddWithValue("@IsAvailable", task.IsAvailable);
+
 
                         command.ExecuteNonQuery();
                     }
@@ -159,7 +163,8 @@ namespace RegionSyd.RepositoriesSQL
                             DropOffTime = reader.GetDateTime(4),
                             Distance = reader.GetDecimal(5),
                             PickUpRegionId = reader.GetInt32(6),
-                            DropOffRegionId = reader.GetInt32(7)
+                            DropOffRegionId = reader.GetInt32(7),
+                            IsAvailable = reader.GetBoolean(8)
                         };
                     }
 
@@ -183,7 +188,47 @@ namespace RegionSyd.RepositoriesSQL
 
             return Tasks.Where(t => t.PickUpRegionId == pickUpRegionId
                                  && t.DropOffRegionId == dropOffRegionId
-                                 && t.PickupTime > dropOffTime).ToList();
+                                 && t.PickupTime > dropOffTime
+                                 && t.IsAvailable).ToList();
+        }
+
+
+        // Get tasks that is not taken
+        public List<Models.Task> GetAvailableTasks()
+        {
+            
+            
+                Tasks = GetAllTasks();
+            
+
+            return Tasks.Where(t => t.IsAvailable).ToList();
+        }
+
+        // Update task availability
+        public void UpdateTaskAvailability(int taskId, bool isAvailable)
+        {
+            string query = "UPDATE Task SET IsAvailable = @IsAvailable WHERE TaskId = @TaskId"; // Replace with your actual table name
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@IsAvailable", isAvailable);
+                    command.Parameters.AddWithValue("@TaskId", taskId);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                    if (rowsAffected == 0)
+                    { 
+                        MessageBox.Show($"Task with Id: {taskId} not found");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error updating task: {ex.Message}");
+                }
+            }
         }
     }
 }

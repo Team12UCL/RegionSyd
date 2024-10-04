@@ -14,6 +14,7 @@ namespace RegionSyd.Models
         public DateTime PickupTime { get; set; }
         public DateTime DropOffTime { get; set; }
         public decimal Distance { get; set; }
+        public bool IsAvailable { get; set; }
 
 
         public string Description { get; set; }

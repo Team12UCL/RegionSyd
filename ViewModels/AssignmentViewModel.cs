@@ -10,7 +10,7 @@ namespace RegionSyd.ViewModels
     public class AssignmentViewModel : INotifyPropertyChanged
     {
         private Models.Task _selectedTask;
-        private TaskRepositorySQL taskRepositorySQL { get; set; }
+        private TaskRepositorySQL _taskRepositorySQL { get; set; }
         private DataManagerSQL dataManager { get; set; }
         public ICommand MatchTaskCommand { get; set; }
         public ICommand RemoveTaskCommand { get; set; }
@@ -83,10 +83,15 @@ namespace RegionSyd.ViewModels
 
         public AssignmentViewModel()
         {
-            taskRepositorySQL = new TaskRepositorySQL();
-            Tasks = new ObservableCollection<Models.Task>(taskRepositorySQL.GetAllTasks());
+            _taskRepositorySQL = new TaskRepositorySQL();
+            Tasks = new ObservableCollection<Models.Task>(_taskRepositorySQL.GetAvailableTasks());
             dataManager = new DataManagerSQL();
             Regions = new ObservableCollection<Region>(dataManager.GetAllRegions());
+
+            Messenger.Register("UpdateTasks", (param) =>
+            {
+                Tasks = new ObservableCollection<Models.Task>(_taskRepositorySQL.GetAvailableTasks());
+            });
 
             RemoveTaskCommand = new RelayCommand(RemoveTask, CanRemoveTask);
             //MatchTaskCommand = new RelayCommand(MatchTask, CanMatchTask);
@@ -104,7 +109,7 @@ namespace RegionSyd.ViewModels
 
         private void RemoveTask()
         {
-            taskRepositorySQL.RemoveTask(SelectedTask.TaskId);
+            _taskRepositorySQL.RemoveTask(SelectedTask.TaskId);
             Tasks.Remove(SelectedTask);
         }
 
@@ -122,7 +127,7 @@ namespace RegionSyd.ViewModels
         }
         public void SetTasksOnRegionSelect()
         {
-            Tasks = new ObservableCollection<Models.Task>(taskRepositorySQL.GetTasksByRegionId(SelectedRegion.Id, true));
+            Tasks = new ObservableCollection<Models.Task>(_taskRepositorySQL.GetTasksByRegionId(SelectedRegion.Id, true));
         }
     }
 }
