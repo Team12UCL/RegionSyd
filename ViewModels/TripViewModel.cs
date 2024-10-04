@@ -131,8 +131,8 @@ namespace RegionSyd.ViewModels
                     MessageBox.Show("Ambulance not found");
                     return;
                 }
-                Trip newTrip = new Trip(SelectedReturnTask.TaskId,
-                    SelectedAmbulance.AmbulanceId, SelectedReturnTask.PickUpRegionId, SelectedReturnTask.DropOffRegionId);
+                Trip newTrip = new Trip(
+                    SelectedAmbulance.AmbulanceId, SelectedReturnTask.TaskId, SelectedReturnTask.PickUpRegionId, SelectedReturnTask.DropOffRegionId);
 
 
                 _tripRepository.SaveTrip(newTrip);
