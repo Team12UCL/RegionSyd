@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 using RegionSyd.Models;
 using System;
 using System.Collections.Generic;
@@ -13,11 +14,9 @@ namespace RegionSyd.RepositoriesSQL
         public List<Region> Regions { get; set; }
         public List<Dispatcher> Dispatchers { get; set; }
 
-        public DataManagerSQL(string connectionString =
-            "Data Source=(localdb)\\GustavDB;Initial Catalog=RegionSyd;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False"
-            )
+        public DataManagerSQL()
         {
-            _connectionString = connectionString;
+            _connectionString = App.Configuration.GetConnectionString("DefaultConnection");
             Regions = new List<Region>();
             Dispatchers = new List<Dispatcher>();
         }

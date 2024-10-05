@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 using RegionSyd.Models;
 using System;
 using System.Collections.Generic;
@@ -9,11 +10,9 @@ namespace RegionSyd.RepositoriesSQL
     {
         private readonly string _connectionString;
 
-        public AmbulanceRepositorySQL(string connectionString =
-            "Data Source=(localdb)\\GustavDB;Initial Catalog=RegionSyd;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False"
-            )
+        public AmbulanceRepositorySQL()
         {
-            _connectionString = connectionString;
+            _connectionString = App.Configuration.GetConnectionString("DefaultConnection");
         }
 
         // Get all ambulances

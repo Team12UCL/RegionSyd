@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 using System.Data;
 
 using System.Windows;
@@ -12,11 +13,9 @@ namespace RegionSyd.RepositoriesSQL
 
         public List<Models.Task> Tasks { get; set; }
 
-        public TaskRepositorySQL(string connectionString = 
-            "Data Source=(localdb)\\GustavDB;Initial Catalog=RegionSyd;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False"
-            )
+        public TaskRepositorySQL()
         {
-            _connectionString = connectionString;
+            _connectionString = App.Configuration.GetConnectionString("DefaultConnection");
             Tasks = new List<Models.Task>();
         }
 
